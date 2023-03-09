@@ -23,17 +23,43 @@
 
   <hr/>
   
+  <!-- 첫번째 ROW -->
   <div class="row ms-4 me-4 mb-5 mx-auto">
+    <!-- 첫번째 COLUMN (1대1 랜덤 채팅) -->
     <div class="col-sm-4 mt-5">
       <h1>1대1 랜덤 채팅</h1>
+      <div class="ms-2 mt-2">현재 접속자 : <span class="badge bg-info">10개</span></div>
       <div class="ms-2 mt-2">현재 매칭 시도 중인 사용자 수 : <span class="badge bg-info">10명</span></div>
+      <div class="mt-4 rounded overflow-scroll border shadow" style="height:280px">
+        <div class="mt-1 mb-1 ms-1 me-1">
+          <div class="bg-success p">
+            <h1>Section 1</h1>
+            <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+            <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+          </div>
+          <div class="bg-info">
+            <h1>Section 2</h1>
+            <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+            <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+          </div>
+          <div class="bg-success">
+            <h1>Section 3</h1>
+            <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+            <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+          </div>
+        </div>
+      </div>
+      <span class="float-end text-muted">현재 접속 중인 사용자</span>
       <div class="col-sm-8 mt-5 mx-auto">
         <button type="button" class="btn btn-primary w-100 mx-auto">1대1 랜덤채팅 시작</button>
       </div>
     </div>
+    
+    <!-- 두번째 COLUMN (그룹 랜덤 채팅) -->
     <div class="col-sm-4 mt-5">
       <h1>개설된 그룹 채팅방</h1>
-      <div class="mt-2">
+      <div class="ms-2 mt-2">현재 그룹 채팅방 : <span class="badge bg-info">10개</span></div>
+      <div class="mt-4">
         <div class="row mb-2">
           <div class="col-sm-6">
             <div class="card">
@@ -79,21 +105,15 @@
           <button type="button" class="btn btn-primary w-25 float-end"><img src="./assets/icon/caret-right-square.svg"></button>
         </div>
       </div>
-    </div>
-    <div class="col-sm-4 mt-5">
-      <h1>그룹 랜덤 채팅</h1>
-      <div class="ms-2 mt-2">현재 그룹 채팅방 : <span class="badge bg-info">10개</span></div>
-      <div class="col-sm-8 mt-5 mx-auto">
+      <div class="col-sm-8 pt-5 mx-auto">
         <button type="button" class="btn btn-primary w-100 mx-auto">그룹 랜덤채팅 시작</button>
       </div>
     </div>
-  </div>
-
-  <div class="row ms-4 me-4 mx-auto">
+    <!-- 세번째 COLUMN (내 채팅방) -->
     <div class="col-sm-4 mt-5">
-      <h1>현재 접속 중인 사용자</h1>
-      <div class="ms-2 mt-2">현재 접속자 : <span class="badge bg-info">10개</span></div>
-      <div class="mt-2 rounded overflow-scroll border h-25 shadow">
+      <h1>내 채팅방</h1>
+      <div class="ms-2 mt-2">현재 참여 중인 채팅방 : <span class="badge bg-info">10개</span></div>
+      <div class="mt-5 rounded overflow-scroll border shadow" style="height:290px">
         <div class="mt-1 mb-1 ms-1 me-1">
           <div class="bg-success p">
             <h1>Section 1</h1>
@@ -113,15 +133,22 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-4 mt-5">
+  </div>
+
+  <!-- 두번째 ROW -->
+  <div class="row ms-4 me-4 mx-auto">
+    <!-- 첫번째 COLUMN (RANNECT 소개) -->
+    <div class="col-sm-8 mt-5">
       <h1>RANNECT 소개</h1>
       <div class="mt-2">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque lacus porttitor, mattis lectus in, malesuada purus. Mauris turpis ante, condimentum ac dictum in, sodales vel risus. Morbi laoreet posuere tincidunt. Nunc non metus ac elit ultrices tristique. Vivamus condimentum tempor ex ac consequat. Integer tempus ex ut lacinia varius. Donec posuere dui sed porta congue. Donec in ultricies lorem. Proin aliquet nulla libero, malesuada lacinia magna elementum vel. Vestibulum venenatis vitae metus vitae luctus. Proin egestas scelerisque odio, eget mollis lorem blandit eu. Sed vel sollicitudin erat. Vestibulum vestibulum elementum facilisis. Duis vel sollicitudin turpis, non sagittis eros.
       </div>
     </div>
+    <!-- 두번째 COLUMN (RANNECT Main logo) -->
     <div class="col-sm-4 mt-5">
-      <h1>내 채팅방</h1>
-      <div class="mt-2"></div>
+      <div class="mt-2">
+        <img src="./assets/img/main-logo.png" class="w-100 mx-auto">
+      </div>
     </div>
   </div>
 
