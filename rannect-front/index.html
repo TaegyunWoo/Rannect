@@ -15,7 +15,7 @@
     <div class="row mx-auto">
       <div class="col-sm-4"></div>
       <img src="./assets/img/logo.png" class="col-sm-4 w-25 mb-5 mx-auto">
-      <div class="col-sm-4 float-end mt-auto">
+      <div class="col-sm-4 float-end mt-auto user-setting-btn" data-bs-toggle="modal" data-bs-target="#userSetting">
         <img src="./assets/icon/person-circle.svg" class="col-sm-1 ms-2 float-end">
         <div class="col-sm-9 text-end float-end">로그인한 사용자 : <span class="badge ">닉네임</span></div>
       </div>
@@ -109,7 +109,7 @@
               <div class="card-body">
                 그룹 채팅방 제목
                 <div class="badge  mt-3 float-end">3 / 10</div>
-                <button type="button" class="btn mt-3 w-100 group-chat-btn">입장</button>
+                <button type="button" class="btn mt-3 w-100 group-chat-btn" data-bs-toggle="modal" data-bs-target="#groupChatRoomModal">입장</button>
               </div>
             </div>
           </div>
@@ -118,7 +118,7 @@
               <div class="card-body">
                 그룹 채팅방 제목
                 <div class="badge  mt-3 float-end">3 / 10</div>
-                <button type="button" class="btn mt-3 w-100 group-chat-btn">입장</button>
+                <button type="button" class="btn mt-3 w-100 group-chat-btn" data-bs-toggle="modal" data-bs-target="#groupChatRoomModal">입장</button>
               </div>
             </div>
           </div>
@@ -129,7 +129,7 @@
               <div class="card-body">
                 그룹 채팅방 제목
                 <div class="badge  mt-3 float-end">3 / 10</div>
-                <button type="button" class="btn mt-3 w-100 group-chat-btn">입장</button>
+                <button type="button" class="btn mt-3 w-100 group-chat-btn" data-bs-toggle="modal" data-bs-target="#groupChatRoomModal">입장</button>
               </div>
             </div>
           </div>
@@ -138,7 +138,7 @@
               <div class="card-body">
                 그룹 채팅방 제목
                 <div class="badge  mt-3 float-end">3 / 10</div>
-                <button type="button" class="btn mt-3 w-100 group-chat-btn">입장</button>
+                <button type="button" class="btn mt-3 w-100 group-chat-btn" data-bs-toggle="modal" data-bs-target="#groupChatRoomModal">입장</button>
               </div>
             </div>
           </div>
@@ -565,8 +565,58 @@
               <input type="text" onkeyup="if(window.event.keyCode==13)" class="form-control" placeholder="메시지를 입력해주세요." name="message">
             </div>
             <div class="col-sm-2">
-              <button type="submit" class="btn message-send-btn"><img class="mx-auto" src="./assets/icon/send-fill.svg"></button>
+              <button class="btn message-send-btn"><img class="mx-auto" src="./assets/icon/send-fill.svg"></button>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 사용자 설정 모달창 -->
+  <div class="modal fade" id="userSetting">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title text-center">사용자 설정</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <!-- Form -->
+          <div>
+            <form action="">
+              <div class="row mx-3 my-3 rounded text-center py-1 form-item">
+                <div class="col-sm-3 align-self-center">
+                  <label for="nicknameUpdate" class="form-label">닉네임</label>
+                </div>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="nicknameUpdate" value="기존 사용자 닉네임" name="nickname">
+                </div>
+              </div>
+              <div class="row mx-3 my-3 rounded text-center py-1 form-item">
+                <div class="col-sm-3 align-self-center">
+                  <label for="topicUpdate" class="form-label">관심 주제</label>
+                </div>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="topicUpdate" value="기존 사용자 관심주제" name="topic">
+                </div>
+              </div>
+              <div class="row mx-3 my-3 rounded text-center py-1 form-item">
+                <button class="btn" style="color: whitesmoke">로그아웃</button>
+              </div>
+              <div class="mx-3 my-3 rounded text-center py-1">
+                <div class="float-start ms-5">
+                  <button class="btn" style="background-color: #F8DCBF;">취소</button>
+                </div>
+                <div class="float-end me-5">
+                  <button type="submit" class="btn float-end" style="background-color: #8C52FF;">확인</button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
