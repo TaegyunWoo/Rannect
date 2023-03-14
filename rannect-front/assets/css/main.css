@@ -55,6 +55,33 @@ h1, h2, h3, h4, h5, h6, .card-body {
     color: black;
 }
 
+.list-item {
+    cursor: pointer;
+}
+
+.list-item:hover {
+    background-color: #F8DCBF;
+}
+
+.list-item:active {
+    background-color: #ebd1b5;
+}
+
+.chat-message-body {
+    background-color: #001F3D;
+    display: inline-block;
+    width: auto;
+    height: auto;
+}
+
+.message-send-btn {
+    background-color: #8C52FF;
+}
+
+.message-send-btn:hover {
+    background-color: #8C52FF;
+}
+
 footer {
     color: whitesmoke;
     font-family: Arial, Helvetica, sans-serif;
