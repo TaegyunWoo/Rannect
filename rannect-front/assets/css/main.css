@@ -121,6 +121,10 @@ h1, h2, h3, h4, h5, h6, .card-body {
     margin-bottom: 0px;
 }
 
+small, footer {
+    font-family: 'TheJamsil1Thin';
+}
+
 footer {
     color: whitesmoke;
     font-family: Arial, Helvetica, sans-serif;
