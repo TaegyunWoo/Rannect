@@ -23,7 +23,7 @@
       <!-- [로그인하지 않은 경우] -->
       <div class="col-sm-4 float-end mt-auto user-setting-btn">
         <button type="button" class="btn float-end mx-2"  data-bs-toggle="modal" data-bs-target="#signUpModal" style="color: whitesmoke; background-color: #8C52FF;">회원가입</button>
-        <button type="button" class="btn float-end mx-2"  data-bs-toggle="modal" data-bs-target="#userSettingModal" style="color: whitesmoke; background-color: #8C52FF;">로그인</button>
+        <button type="button" class="btn float-end mx-2"  data-bs-toggle="modal" data-bs-target="#signInModal" style="color: whitesmoke; background-color: #8C52FF;">로그인</button>
       </div>
     </div>
   </header>
@@ -600,7 +600,7 @@
                   <label for="nicknameUpdate" class="form-label">닉네임</label>
                 </div>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" id="nicknameUpdate" value="기존 사용자 닉네임" name="nickname">
+                  <input type="text" class="form-control" id="nicknameUpdate" placeholder="기존 사용자 닉네임" name="nickname">
                 </div>
               </div>
               <div class="row mx-3 my-3 rounded text-center py-1 form-item">
@@ -608,7 +608,7 @@
                   <label for="topicUpdate" class="form-label">관심 주제</label>
                 </div>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" id="topicUpdate" value="기존 사용자 관심주제" name="topic">
+                  <input type="text" class="form-control" id="topicUpdate" placeholder="기존 사용자 관심주제" name="topic">
                 </div>
               </div>
               <div class="row mx-3 my-3 rounded text-center py-1 form-item">
@@ -650,7 +650,7 @@
                   <label for="signUpUserId" class="form-label">아이디</label>
                 </div>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" id="signUpId" placeholder="4자리 이상, 12자리 이하, 영문" name="userId">
+                  <input type="text" class="form-control" id="signUpUserId" placeholder="4자리 이상, 12자리 이하, 영문" name="userId">
                 </div>
               </div>
               <div class="row mx-3 my-3 rounded text-center py-1 form-item">
@@ -663,18 +663,60 @@
               </div>
               <div class="row mx-3 my-3 rounded text-center py-1 form-item">
                 <div class="col-sm-3 align-self-center">
-                  <label for="nicknameUpdate" class="form-label">닉네임</label>
+                  <label for="signUpNickname" class="form-label">닉네임</label>
                 </div>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" id="nicknameUpdate" placeholder="2자 이상, 영어, 숫자, 한글" name="nickname">
+                  <input type="text" class="form-control" id="signUpNickname" placeholder="2자 이상, 영어, 숫자, 한글" name="nickname">
                 </div>
               </div>
               <div class="row mx-3 my-3 rounded text-center py-1 form-item">
                 <div class="col-sm-3 align-self-center">
-                  <label for="topicUpdate" class="form-label">관심 주제</label>
+                  <label for="signUptopic" class="form-label">관심 주제</label>
                 </div>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" id="topicUpdate" placeholder="50자 이하, 영어, 숫자, 한글" name="topic">
+                  <input type="text" class="form-control" id="signUptopic" placeholder="50자 이하, 영어, 숫자, 한글" name="topic">
+                </div>
+              </div>
+              <div class="mx-3 my-3 rounded text-center py-1">
+                <button type="submit" class="btn" style="background-color: #8C52FF;">확인</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 로그인 모달창 -->
+  <div class="modal fade" id="signInModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title text-center">로그인</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <!-- Form -->
+          <div>
+            <form action="">
+              <div class="row mx-3 my-3 rounded text-center py-1 form-item">
+                <div class="col-sm-3 align-self-center">
+                  <label for="signInUserId" class="form-label">아이디</label>
+                </div>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="signInUserId" placeholder="입력해주세요" name="userId">
+                </div>
+              </div>
+              <div class="row mx-3 my-3 rounded text-center py-1 form-item">
+                <div class="col-sm-3 align-self-center">
+                  <label for="signInPassword" class="form-label">비밀번호</label>
+                </div>
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" id="signInPassword" placeholder="입력해주세요" name="password">
                 </div>
               </div>
               <div class="mx-3 my-3 rounded text-center py-1">
