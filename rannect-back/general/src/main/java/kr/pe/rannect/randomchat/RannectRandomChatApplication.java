@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RannectGeneralApplication {
+public class RannectRandomChatApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RannectGeneralApplication.class, args);
+		SpringApplication.run(RannectRandomChatApplication.class, args);
 	}
 
 }
