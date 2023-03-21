@@ -1,4 +1,4 @@
-package kr.pe.rannect.general;
+package kr.pe.rannect.randomchat;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

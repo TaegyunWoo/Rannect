@@ -1,4 +1,4 @@
-package kr.pe.rannect.general;
+package kr.pe.rannect.randomchat;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
