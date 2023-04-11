@@ -102,6 +102,24 @@
 ### WebSocket API
 > 작성 예정
 
+## Learn & Apply
+### Spring
+- [ ] [Spring MVC - Problem Details for HTTP APIs](https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#mvc-ann-rest-exceptions)
+- [ ] Spring Security
+- [ ] Spring Data JPA - Interface Repository
+- [ ] Spring Data JPA - QueryDSL
+
+### Message Broker
+- [ ] Redis (as message broker)
+- [ ] RabbitMQ (as message broker)
+- [ ] Kafka (as message broker)
+
+### Event Based
+- [ ] [Event-Driven Architecture](https://www.asyncapi.com/docs/tutorials/getting-started/event-driven-architectures)
+- [ ] [AsyncApi (for websocket documentation)](https://www.asyncapi.com/docs)
+
+<br/>
+
 ## 기여
 개인 프로젝트 (BE + FE + PM + Design)
 
