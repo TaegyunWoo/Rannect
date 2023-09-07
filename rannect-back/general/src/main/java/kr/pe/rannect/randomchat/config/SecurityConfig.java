@@ -1,6 +1,4 @@
 /**
- * packageName    : kr.pe.rannect.randomchat.config
- * fileName       : SecurityConfig
  * author         : 우태균
  * description    : Spring Security 설정
  */

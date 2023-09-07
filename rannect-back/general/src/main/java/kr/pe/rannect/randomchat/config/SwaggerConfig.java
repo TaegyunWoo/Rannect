@@ -1,6 +1,4 @@
 /**
- * packageName    : kr.pe.rannect.randomchat.config
- * fileName       : SwaggerConfig
  * author         : 우태균
  * description    : Swagger 적용을 위한 Spring Docs 라이브러리 관련 설정
  */
