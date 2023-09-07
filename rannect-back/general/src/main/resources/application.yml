@@ -1,0 +1,27 @@
+# ====================== Header ======================
+# fileName       : application.yml
+# author         : ???
+# description    : ?? properties ??
+# ====================================================
+
+# swagger
+springdoc:
+  packages-to-scan: wanted.preonboarding.assignment.controller
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8
+  swagger-ui:
+    path: /swagger
+    disable-swagger-default-url: true
+    display-request-duration: true
+    operations-sorter: alpha
+
+# JPA
+  spring:
+    jpa:
+      open-in-view: false
+
+# Off ResourceHttpRequestHandler
+spring:
+  web:
+    resources:
+      add-mappings: false
