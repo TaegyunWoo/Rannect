@@ -10,7 +10,9 @@ import lombok.ToString;
 @Getter
 @ToString
 public enum ErrorCode {
-
+  //공통
+  INVALID_INPUT_VALUE(400, "C001", "Input value is rejected"),
+  INVALID_INPUT_TYPE(400, "C002", "Input type is invalid"),
   ;
 
   private int status; //HTTP 오류 응답 상태 코드
