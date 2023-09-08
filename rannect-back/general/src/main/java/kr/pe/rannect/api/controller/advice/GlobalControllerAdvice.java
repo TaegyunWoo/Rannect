@@ -2,10 +2,10 @@
  * author         : 우태균
  * description    : 전체 에러 핸들링 ControllerAdvice
  */
-package kr.pe.rannect.randomchat.controller.advice;
+package kr.pe.rannect.api.controller.advice;
 
-import kr.pe.rannect.randomchat.dto.ErrorResponseDto;
-import kr.pe.rannect.randomchat.exception.BusinessException;
+import kr.pe.rannect.api.dto.ErrorResponseDto;
+import kr.pe.rannect.api.exception.BusinessException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

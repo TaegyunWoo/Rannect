@@ -3,7 +3,7 @@
  * description    : Swagger 적용을 위한 Spring Docs 라이브러리 관련 설정
  */
 
-package kr.pe.rannect.randomchat.config;
+package kr.pe.rannect.api.config;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;

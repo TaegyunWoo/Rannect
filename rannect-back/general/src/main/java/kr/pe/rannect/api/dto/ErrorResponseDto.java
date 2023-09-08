@@ -2,10 +2,10 @@
  * author         : 우태균
  * description    : 오류 응답 DTO
  */
-package kr.pe.rannect.randomchat.dto;
+package kr.pe.rannect.api.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import kr.pe.rannect.randomchat.exception.ErrorCode;
+import kr.pe.rannect.api.exception.ErrorCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

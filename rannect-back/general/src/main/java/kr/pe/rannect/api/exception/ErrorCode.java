@@ -2,7 +2,7 @@
  * author         : 우태균
  * description    : 비즈니스 로직 상, 발생하는 모든 오류코드들을 모은 Enum
  */
-package kr.pe.rannect.randomchat.exception;
+package kr.pe.rannect.api.exception;
 
 import lombok.Getter;
 import lombok.ToString;

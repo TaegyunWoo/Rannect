@@ -2,7 +2,7 @@
  * author         : 우태균
  * description    : Spring Security 설정
  */
-package kr.pe.rannect.randomchat.config;
+package kr.pe.rannect.api.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

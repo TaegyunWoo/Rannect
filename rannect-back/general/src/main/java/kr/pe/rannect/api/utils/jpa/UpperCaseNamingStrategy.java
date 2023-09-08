@@ -3,7 +3,7 @@
  * description    : JPA Configuration이 DDL AUTO인 경우, DB 테이블 및 칼럼 네이밍 전략.
  *                  모두 대문자 + 언더바 조합으로 생성함.
  */
-package kr.pe.rannect.randomchat.utils.jpa;
+package kr.pe.rannect.api.utils.jpa;
 
 import org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy;
 import org.hibernate.boot.model.naming.Identifier;

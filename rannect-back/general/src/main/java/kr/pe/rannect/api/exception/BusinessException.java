@@ -2,7 +2,7 @@
  * author         : 우태균
  * description    : 비즈니스 로직 상, 의도적으로 발생시키는 모든 예외 클래스들의 Super Class
  */
-package kr.pe.rannect.randomchat.exception;
+package kr.pe.rannect.api.exception;
 
 import lombok.Getter;
 
