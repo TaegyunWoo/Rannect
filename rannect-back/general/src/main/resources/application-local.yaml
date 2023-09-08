@@ -16,7 +16,7 @@ spring:
       hibernate:
         format_sql: true
         naming:
-          physical-strategy: kr.pe.rannect.randomchat.utils.jpa
+          physical-strategy: kr.pe.rannect.randomchat.utils.jpa.UpperCaseNamingStrategy
         globally_quoted_identifiers: true
 
   # H2
