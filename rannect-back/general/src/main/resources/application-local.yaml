@@ -15,6 +15,8 @@ spring:
     properties:
       hibernate:
         format_sql: true
+        naming:
+          physical-strategy: wanted.preonboarding.assignment.utils.jpa.UpperCaseNamingStrategy
         globally_quoted_identifiers: true
 
   # H2
