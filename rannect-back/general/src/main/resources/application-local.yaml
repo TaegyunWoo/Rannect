@@ -15,10 +15,10 @@ spring:
     properties:
       hibernate:
         format_sql: true
-        naming:
-          physical-strategy: kr.pe.rannect.randomchat.utils.jpa.UpperCaseNamingStrategy
         globally_quoted_identifiers: true
-
+    hibernate:
+      naming:
+        physical-strategy: kr.pe.rannect.randomchat.utils.jpa.UpperCaseNamingStrategy
   # H2
   h2:
     console:
