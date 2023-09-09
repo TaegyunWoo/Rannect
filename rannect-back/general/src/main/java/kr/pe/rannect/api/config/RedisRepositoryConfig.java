@@ -11,6 +11,7 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @EnableRedisRepositories
 @Configuration
@@ -36,8 +37,10 @@ public class RedisRepositoryConfig {
    */
   @Bean
   public RedisTemplate<?, ?> redisTemplate() {
-    RedisTemplate<byte[], byte[]> redisTemplate = new RedisTemplate<>();
+    RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
     redisTemplate.setConnectionFactory(redisConnectionFactory());
+    redisTemplate.setKeySerializer(new StringRedisSerializer()); //Java String 타입 값을 UTF-8로 직렬화
+    redisTemplate.setValueSerializer(new StringRedisSerializer()); //Java String 타입 값을 UTF-8로 직렬화
     return redisTemplate;
   }
 }
