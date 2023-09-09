@@ -5,7 +5,7 @@
 
 # swagger
 springdoc:
-  packages-to-scan: kr.pe.rannect.randomchat.controller
+  packages-to-scan: kr.pe.rannect.api.controller
   default-consumes-media-type: application/json;charset=UTF-8
   default-produces-media-type: application/json;charset=UTF-8
   swagger-ui:
