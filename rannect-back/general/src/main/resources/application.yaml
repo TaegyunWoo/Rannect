@@ -14,13 +14,11 @@ springdoc:
     display-request-duration: true
     operations-sorter: alpha
 
-# JPA
-  spring:
-    jpa:
-      open-in-view: false
-
-# Off ResourceHttpRequestHandler
 spring:
+  # JPA
+  jpa:
+    open-in-view: false
+  # Off ResourceHttpRequestHandler
   web:
     resources:
       add-mappings: false
