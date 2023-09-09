@@ -22,3 +22,5 @@ spring:
   web:
     resources:
       add-mappings: false
+  config:
+    import: auth-secret
