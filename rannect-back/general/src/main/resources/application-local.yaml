@@ -29,6 +29,11 @@ spring:
     driverClassName: org.h2.Driver
     username: sa
     password:
+  # Embedded Redis
+  redis:
+    host: localhost
+    port: 6379
+    redis-m1-location: binary/redis-server-6.2.5-mac-arm64
 
 # Hibernate Logging
 logging:
