@@ -1,0 +1,10 @@
+spring:
+  redis:
+    host: localhost
+    port: 6379
+
+# JWT
+jwt:
+  secretKey: 69c28d41858e31a15acc190514e5049b86d00dcf0509fee9113e298b8c4f258706d8dd30deae6755832a0a25f2590cf6ae034c38cd96c80d4a98e04e928b22d7
+  accessTokenValidMilliSec: 7200000 # 2시간
+  refreshTokenValidMilliSec: 86428571 # 1일
