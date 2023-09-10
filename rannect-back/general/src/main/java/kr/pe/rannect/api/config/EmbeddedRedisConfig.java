@@ -8,12 +8,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import org.springframework.core.io.ClassPathResource;
+import redis.embedded.RedisExecProvider;
 import redis.embedded.RedisServer;
+import redis.embedded.RedisServerBuilder;
+import redis.embedded.util.OS;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Objects;
@@ -35,18 +36,21 @@ public class EmbeddedRedisConfig {
    */
   @PostConstruct
   public void redisServer() throws IOException, URISyntaxException {
+    RedisServerBuilder builder = RedisServer.builder();
+
     if (isArmMac()) { //만약 실행 환경이 Mac M1이라면
-      redisServer = new RedisServer(Objects.requireNonNull(getRedisFileForArcMac()),
-          redisPort);
-    } else { //실행 환경이 Mac M1이 아니라면
-      redisServer = RedisServer.builder()
-          .port(redisPort)
-          .setting("maxmemory 128M") //메모리 최대 크기
-          .setting("appendonly no") //AOF OFF
-          .setting("save \"\"") //RDB OFF
-          .build();
+      RedisExecProvider redisExecProvider = RedisExecProvider.defaultProvider();
+
+      redisExecProvider.override(OS.MAC_OS_X, redisForM1Location); //MAC OS용 Redis Server 실행 파일 변경
+      builder.redisExecProvider(redisExecProvider); //적용
     }
 
+    redisServer = RedisServer.builder()
+        .port(redisPort)
+        .setting("maxmemory 128M") //메모리 최대 크기
+        .setting("appendonly no") //AOF OFF
+        .setting("save \"\"") //RDB OFF
+        .build();
     redisServer.start();
   }
 
@@ -68,14 +72,5 @@ public class EmbeddedRedisConfig {
     return (Objects.equals(System.getProperty("os.arch"), "aarch64") ||
         Objects.equals(System.getProperty("os.arch"), "x86_64")) &&
         Objects.equals(System.getProperty("os.name"), "Mac OS X");
-  }
-
-  /**
-   * Mac OS M1용 Redis 실행 바이너리 파일을 가져오는 메서드
-   * @return M1용 Redis 바이너리 파일
-   * @throws IOException
-   */
-  private File getRedisFileForArcMac() throws IOException {
-    return new ClassPathResource(redisForM1Location).getFile();
   }
 }
