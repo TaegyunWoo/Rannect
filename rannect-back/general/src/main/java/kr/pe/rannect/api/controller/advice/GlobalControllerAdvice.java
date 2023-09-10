@@ -43,7 +43,7 @@ public class GlobalControllerAdvice {
   }
 
   /**
-   * RequestAttribute 에 대해, @Valid에 의해 발생하는 프로퍼티 바인딩 오류 처리
+   * 기타 바인딩 오류 처리
    * @param e 관련 예외 객체
    * @return 오류 응답
    */
