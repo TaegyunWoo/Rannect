@@ -17,7 +17,6 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 @AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
-@Import({MemberRepository.class})
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 class MemberRepositoryTest {
