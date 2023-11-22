@@ -51,7 +51,7 @@ function SignInModal({ show }) {
                   <button
                     type="submit"
                     className="btn"
-                    style={{ backgroundColor: "#8C52FF" }}
+                    style={{ backgroundColor: "#8C52FF", color: "white" }}
                   >
                     확인
                   </button>

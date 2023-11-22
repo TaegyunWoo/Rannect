@@ -1,6 +1,6 @@
 import React from "react";
 
-function SignUpModal({ show }) {
+function SignUpModal({ show, handleChange, handleSubmit }) {
   return (
     <div style={show ? { display: "block" } : { display: "none" }}>
       <div className="modal-dialog">
@@ -14,7 +14,7 @@ function SignUpModal({ show }) {
           <div className="modal-body">
             {/* Form */}
             <div>
-              <form action="">
+              <form action="" onChange={handleChange} onSubmit={handleSubmit}>
                 <div className="row mx-3 my-3 rounded text-center py-1 form-item">
                   <div className="col-sm-3 align-self-center">
                     <label for="signUpUserId" className="form-label">
@@ -83,7 +83,7 @@ function SignUpModal({ show }) {
                   <button
                     type="submit"
                     className="btn"
-                    style={{ backgroundColor: "#8C52FF" }}
+                    style={{ backgroundColor: "#8C52FF", color: "white" }}
                   >
                     확인
                   </button>

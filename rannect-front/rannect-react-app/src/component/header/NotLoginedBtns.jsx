@@ -1,5 +1,4 @@
 import React from "react";
-import Styles from "../../style/Styles.module.css";
 
 function NotLoginedBtns({ handleSignUpClick, handleSignInClick }) {
   return (
