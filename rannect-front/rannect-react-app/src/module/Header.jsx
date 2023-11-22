@@ -3,26 +3,23 @@ import MainHeader from "../component/header/MainHeader";
 import LoginedBtns from "../component/header/LoginedBtns";
 import NotLoginedBtns from "../component/header/NotLoginedBtns";
 import UserSettingModal from "../component/modal/UserSettingModal";
-import SignUpModal from "../component/modal/SignUpModal";
+import SignUp from "./SignUp";
 import SignInModal from "../component/modal/SignInModal";
 import signUpAPI from "../api/member/SignUpAPI";
 
 function Header() {
   const [showSignUpModal, setShowSignUpModal] = useState(false);
-  const [newAccountId, setNewAccountId] = useState("");
   const [showSignInModal, setShowSignInModal] = useState(false);
   const [showUserSettingModal, setShowUserSettingModal] = useState(false);
 
   //회원가입 관련
-  const handleSignUpModal = (e) => {
-    setShowSignUpModal(!showSignUpModal);
+  const handleShowSignUpModal = (e) => {
+    setShowSignUpModal(true);
   };
 
-  const handleSignUpChange = (e) => {
-    console.log(e.target);
+  const handleHideSignUpModal = (e) => {
+    setShowSignUpModal(false);
   };
-
-  const handleSignUpSubmit = (e) => {};
 
   //로그인 관련
   const handleSignInModal = (e) => {
@@ -52,17 +49,15 @@ function Header() {
       <MainHeader
         btns={
           <NotLoginedBtns
-            handleSignUpClick={handleSignUpModal}
+            handleSignUpClick={handleShowSignUpModal}
             handleSignInClick={handleSignInModal}
           />
         }
       />
-      <SignUpModal
+      <SignUp
         show={showSignUpModal}
-        handleChange={handleSignUpChange}
-        handleSubmit={handleSignUpSubmit}
+        handleHide={handleHideSignUpModal}
       />
-      <SignInModal show={showSignInModal} />
     </>
   );
   // return (

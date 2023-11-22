@@ -15,8 +15,6 @@ function call(req) {
     }),
   };
 
-  alert(`${SERVER_URL}/members`);
-
   fetch(`${SERVER_URL}/members`, request)
     .then((res) => {
       if (!res.ok) {

@@ -1,9 +1,9 @@
 import React from "react";
+import Modal from "react-bootstrap/Modal";
 
-function SignInModal({ show }) {
+function SignInModal({ show, handleHide }) {
   return (
-    <div style={show ? { display: "block" } : { display: "none" }}>
-      <div className="modal-dialog">
+    <Modal show={show} onHide={handleHide}>
         <div className="modal-content">
           {/* Modal Header */}
           <div className="modal-header">
@@ -60,8 +60,7 @@ function SignInModal({ show }) {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+    </Modal>
   );
 }
 
