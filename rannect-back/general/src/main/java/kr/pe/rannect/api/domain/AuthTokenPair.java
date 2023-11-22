@@ -16,7 +16,7 @@ import org.springframework.data.redis.core.RedisHash;
 @RedisHash("TokenPair") //key prefix
 public class AuthTokenPair {
   @Id
-  private long memberPk;
+  private Long memberPk;
   private String accessToken;
   private String refreshToken;
 }
