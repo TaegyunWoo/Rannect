@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 public class MemberDto {
@@ -22,6 +23,7 @@ public class MemberDto {
     @Pattern(regexp = "[a-zA-Z]*", message = "계정ID는 영문자만 가능")
     private String accountId;
     @Schema(description = "6자 이상, 12자 이하, 영문 및 숫자 가능", example = "myPassword")
+    @NotNull
     @Length(min = 6, max = 12)
     @Pattern(regexp = "[a-zA-Z0-9]*", message = "비밀번호는 영어,숫자만 가능")
     private String rawPassword;
