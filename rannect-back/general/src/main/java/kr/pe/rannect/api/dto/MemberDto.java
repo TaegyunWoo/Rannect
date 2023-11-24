@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
@@ -52,5 +53,19 @@ public class MemberDto {
     private String nickname;
     @Schema(description = "관심있는 주제", example = "축구에 관심이 많아요~!")
     private String interestedIn;
+  }
+
+  @Getter
+  @Setter
+  @NoArgsConstructor
+  @AllArgsConstructor
+  @Builder
+  public static class SignInRequest {
+    @Schema(description = "로그인 아이디", example = "myAccountId")
+    @NotBlank
+    private String accountId;
+    @Schema(description = "로그인 비밀번호", example = "myPassword")
+    @NotBlank
+    private String rawPassword;
   }
 }
