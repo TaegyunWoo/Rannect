@@ -19,6 +19,7 @@ public class MemberDto {
   @Builder
   public static class MemberRequest {
     @Schema(description = "4자 이상, 12자 이하, 영문만 가능", example = "myAccountId")
+    @NotNull
     @Length(min = 4, max = 12)
     @Pattern(regexp = "[a-zA-Z]*", message = "계정ID는 영문자만 가능")
     private String accountId;
@@ -28,6 +29,7 @@ public class MemberDto {
     @Pattern(regexp = "[a-zA-Z0-9]*", message = "비밀번호는 영어,숫자만 가능")
     private String rawPassword;
     @Schema(description = "2자 이상, 15자 이하, 영문·한글·숫자 가능", example = "myNickname")
+    @NotNull
     @Length(min = 2, max = 15)
     @Pattern(regexp = "[a-zA-Z0-9가-힣]*")
     private String nickname;
