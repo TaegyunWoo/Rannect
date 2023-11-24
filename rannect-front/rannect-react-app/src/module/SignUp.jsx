@@ -17,6 +17,7 @@ function SignUp({ show, handleHideBasic }) {
   const handleSignUpSubmit = (e) => {
     e.preventDefault();
     callSignUpAPI(signUpFormData, (res) => {
+      console.log(res);
       if (Object.keys(res).includes("code")) {
         if (res.code === "M001") {
           setApiResErrMsg(() => "아이디가 이미 존재합니다.");
