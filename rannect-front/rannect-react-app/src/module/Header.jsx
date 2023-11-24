@@ -4,8 +4,8 @@ import LoginedBtns from "../component/header/LoginedBtns";
 import NotLoginedBtns from "../component/header/NotLoginedBtns";
 import UserSettingModal from "../component/modal/UserSettingModal";
 import SignUp from "./SignUp";
+import SignIn from "./SignIn";
 import SignInModal from "../component/modal/SignInModal";
-import signUpAPI from "../api/member/SignUpAPI";
 
 function Header() {
   const [showSignUpModal, setShowSignUpModal] = useState(false);
@@ -54,10 +54,8 @@ function Header() {
           />
         }
       />
-      <SignUp
-        show={showSignUpModal}
-        handleHideBasic={handleHideSignUpModal}
-      />
+      <SignUp show={showSignUpModal} handleHideBasic={handleHideSignUpModal} />
+      <SignIn show={showSignInModal} handleHideBasic={handleSignInModal} />
     </>
   );
   // return (
