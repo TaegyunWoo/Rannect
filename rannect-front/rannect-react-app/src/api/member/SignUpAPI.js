@@ -15,7 +15,8 @@ async function call(req, callback) {
     }),
   };
   const response = await fetch(`${SERVER_URL}/members`, request);
-  callback(await response.json());
+  if (response.ok) callback({});
+  else callback(await response.json());
 }
 
 export default call;
