@@ -13,11 +13,11 @@ function Header() {
   const [showUserSettingModal, setShowUserSettingModal] = useState(false);
 
   //회원가입 관련
-  const handleShowSignUpModal = (e) => {
+  const handleShowSignUpModal = () => {
     setShowSignUpModal(true);
   };
 
-  const handleHideSignUpModal = (e) => {
+  const handleHideSignUpModal = () => {
     setShowSignUpModal(false);
   };
 
@@ -56,7 +56,7 @@ function Header() {
       />
       <SignUp
         show={showSignUpModal}
-        handleHide={handleHideSignUpModal}
+        handleHideBasic={handleHideSignUpModal}
       />
     </>
   );

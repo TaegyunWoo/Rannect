@@ -1,7 +1,13 @@
 import React from "react";
 import Modal from "react-bootstrap/Modal";
 
-function SignUpModal({ show, handleHide, handleChange, handleSubmit }) {
+function SignUpModal({
+  show,
+  handleHide,
+  handleChange,
+  handleSubmit,
+  errMsg,
+}) {
   return (
     <Modal show={show} onHide={handleHide}>
       <div className="modal-content">
@@ -15,6 +21,16 @@ function SignUpModal({ show, handleHide, handleChange, handleSubmit }) {
           {/* Form */}
           <div>
             <form action="" onChange={handleChange} onSubmit={handleSubmit}>
+              {errMsg === undefined || errMsg !== "" ? (
+                <div
+                  className="col-sm-12 my-1 text-center"
+                  style={{ color: "red" }}
+                >
+                  {errMsg}
+                </div>
+              ) : (
+                <></>
+              )}
               <div className="row mx-3 my-3 rounded text-center py-1 form-item">
                 <div className="col-sm-3 align-self-center">
                   <label for="signUpUserId" className="form-label">
@@ -81,7 +97,7 @@ function SignUpModal({ show, handleHide, handleChange, handleSubmit }) {
               </div>
               <div className="mx-3 my-3 rounded text-center py-1">
                 <button
-                  type="btn"
+                  type="button"
                   className="btn"
                   onClick={handleHide}
                   style={{ backgroundColor: "#F8DCBF" }}
@@ -92,7 +108,7 @@ function SignUpModal({ show, handleHide, handleChange, handleSubmit }) {
                 <button
                   type="submit"
                   className="btn"
-                  style={{ backgroundColor: "#8C52FF", color: "white" }}
+                  style={{ backgroundColor: "#8C52FF", color: "whitesmoke" }}
                 >
                   확인
                 </button>

@@ -1,6 +1,6 @@
 const SERVER_URL = `${process.env.REACT_APP_SERVER_URL}:${process.env.REACT_APP_SERVER_PORT}`;
 
-function call(req) {
+async function call(req, callback) {
   const request = {
     method: "POST",
     headers: {
@@ -8,24 +8,14 @@ function call(req) {
       "Content-Type": "application/json;charset=UTF-8",
     },
     body: JSON.stringify({
-      accountId: req.newAccountId,
-      rawPassword: req.newPassword,
-      nickname: req.newNickname,
-      interestedIn: req.interestedIn,
+      accountId: req.userId,
+      rawPassword: req.password,
+      nickname: req.nickname,
+      interestedIn: req.topic,
     }),
   };
-
-  fetch(`${SERVER_URL}/members`, request)
-    .then((res) => {
-      if (!res.ok) {
-        return res.text().then((text) => {
-          throw new Error(text);
-        });
-      } else {
-        console.log(res);
-      }    
-    })
-    .catch((err) => console.log(err));
+  const response = await fetch(`${SERVER_URL}/members`, request);
+  callback(await response.json());
 }
 
 export default call;
