@@ -30,10 +30,10 @@ public interface MemberApi {
   );
 
   @Operation(summary = "로그인")
-  @ApiResponse(responseCode = "200", description = "회원가입 성공")
-  @ApiResponse(responseCode = "400", description = "입력 형식 오류, 조건사항 비만족, 아이디 중복", content = {@Content(schema = @Schema(implementation = ErrorResponseDto.class))})
+  @ApiResponse(responseCode = "200", description = "로그인 성공")
+  @ApiResponse(responseCode = "401", description = "로그인 실패", content = {@Content(schema = @Schema(implementation = ErrorResponseDto.class))})
   @PostMapping("/sign-in")
   AuthTokenPairDto.AuthTokenPairResponse signIn(
-      @RequestBody @Valid MemberDto.SignInRequest request
+      @RequestBody MemberDto.SignInRequest request
   );
 }

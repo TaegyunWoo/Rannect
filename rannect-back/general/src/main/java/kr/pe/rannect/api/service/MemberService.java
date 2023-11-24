@@ -14,13 +14,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import static kr.pe.rannect.api.dto.MemberDto.MemberRequest;
-import static kr.pe.rannect.api.dto.MemberDto.MemberResponse;
+import static kr.pe.rannect.api.dto.AuthTokenPairDto.AuthTokenPairResponse;
+import static kr.pe.rannect.api.dto.MemberDto.*;
 
 @RequiredArgsConstructor
 @Service
 public class MemberService {
   private final MemberRepository memberRepository;
+  private final TokenService tokenService;
   private final PasswordEncoder passwordEncoder;
 
   @Transactional
@@ -41,6 +42,24 @@ public class MemberService {
 
     MemberResponse response = MemberMapper.INSTANCE.toResponseDto(member);
     return response;
+  }
+
+  @Transactional(readOnly = true)
+  public AuthTokenPairResponse signIn(SignInRequest request) {
+    //Account ID 확인
+    String requestedAccountId = request.getAccountId();
+    Member member = memberRepository.findByAccountId(requestedAccountId).orElseThrow(
+        () -> new InvalidValueException(ErrorCode.SIGN_IN_FAIL)
+    );
+
+    //PW 확인
+    String requestedRawPw = request.getRawPassword();
+    boolean isCorrectPw = passwordEncoder.matches(requestedRawPw, member.getPassword());
+    if (!isCorrectPw) throw new InvalidValueException(ErrorCode.SIGN_IN_FAIL);
+
+    //토큰쌍 발급
+    AuthTokenPairResponse tokenPairResponse = tokenService.issueNewAuthToken(member.getId());
+    return tokenPairResponse;
   }
 
 }
