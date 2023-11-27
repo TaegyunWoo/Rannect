@@ -17,12 +17,12 @@ function SignIn({ show, handleHideBasic }) {
   const handleSignInSubmit = (e) => {
     e.preventDefault();
     callSignInAPI(signInFormData, (res) => {
-      console.log(res);
       if (Object.keys(res).includes("code")) {
         if (res.code === "M002") {
           setApiResErrMsg(() => "로그인 정보가 틀립니다.");
         }
       } else {
+        localStorage.setItem("refreshToken", res.refreshToken);
         handleHideWithClearState();
       }
     });
