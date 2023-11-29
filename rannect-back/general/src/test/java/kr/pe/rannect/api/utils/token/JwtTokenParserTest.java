@@ -62,7 +62,7 @@ class JwtTokenParserTest {
     String invalidTokenVal = Jwts.builder()
         .setHeaderParam(Header.TYPE, Header.JWT_TYPE)
         .setIssuedAt(now)
-        .setExpiration(new Date(now.getTime() + 2000000000))
+        .setExpiration(new Date(now.getTime() - 2000000000))
         .signWith(SignatureAlgorithm.HS512, secretKey)
         .compact();
 
@@ -77,7 +77,7 @@ class JwtTokenParserTest {
     String invalidTokenVal = Jwts.builder()
         .setHeaderParam(Header.TYPE, Header.JWT_TYPE)
         .setIssuedAt(now)
-        .setExpiration(new Date(now.getTime() - 2000000))
+        .setExpiration(new Date(now.getTime() + 2000000))
         .signWith(SignatureAlgorithm.HS512, "different secret key val")
         .compact();
 

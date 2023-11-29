@@ -10,13 +10,15 @@ class AuthTokenPairMapperTest {
   @Test
   void StringToEntity() {
     //GIVEN
+    long memberPk = 1L;
     String accessTokenVal = "this is my access token";
     String refreshTokenVal = "this is my refresh token";
 
     //WHEN
-    AuthTokenPair result = AuthTokenPairMapper.INSTANCE.toEntity(accessTokenVal, refreshTokenVal);
+    AuthTokenPair result = AuthTokenPairMapper.INSTANCE.toEntity(memberPk, accessTokenVal, refreshTokenVal);
 
     //THEN
+    assertEquals(memberPk, result.getMemberPk());
     assertEquals(accessTokenVal, result.getAccessToken());
     assertEquals(refreshTokenVal, result.getRefreshToken());
   }
