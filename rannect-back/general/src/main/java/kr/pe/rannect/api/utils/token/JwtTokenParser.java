@@ -25,7 +25,7 @@ public class JwtTokenParser {
    * @param secretKey 비밀키
    * @param localDateTimeTransformer Date->LocalDate 변환 컴포넌트
    */
-  public JwtTokenParser(@Value("${jwt.secret}") String secretKey, LocalDateTimeTransformer localDateTimeTransformer) {
+  public JwtTokenParser(@Value("${jwt.secretKey}") String secretKey, LocalDateTimeTransformer localDateTimeTransformer) {
     this.secretKey = secretKey;
     this.localDateTimeTransformer = localDateTimeTransformer;
   }
