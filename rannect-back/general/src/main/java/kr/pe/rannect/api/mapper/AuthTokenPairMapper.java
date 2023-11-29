@@ -15,9 +15,10 @@ import org.mapstruct.factory.Mappers;
 public interface AuthTokenPairMapper {
   AuthTokenPairMapper INSTANCE = Mappers.getMapper(AuthTokenPairMapper.class);
 
+  @Mapping(source = "memberPk", target = "memberPk")
   @Mapping(source = "accessToken", target = "accessToken")
   @Mapping(source = "refreshToken", target = "refreshToken")
-  AuthTokenPair toEntity(String accessToken, String refreshToken);
+  AuthTokenPair toEntity(long memberPk, String accessToken, String refreshToken);
 
   @Mapping(source = "accessToken", target = "accessToken")
   @Mapping(source = "refreshToken", target = "refreshToken")

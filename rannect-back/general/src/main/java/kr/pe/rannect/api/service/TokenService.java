@@ -24,7 +24,7 @@ public class TokenService {
   public AuthTokenPairResponse issueNewAuthToken(long memberPk) {
     String accessTokenVal = tokenIssuer.createMemberToken(memberPk, false);
     String refreshTokenVal = tokenIssuer.createMemberToken(memberPk, true);
-    AuthTokenPair authTokenPair = AuthTokenPairMapper.INSTANCE.toEntity(accessTokenVal, refreshTokenVal);
+    AuthTokenPair authTokenPair = AuthTokenPairMapper.INSTANCE.toEntity(memberPk, accessTokenVal, refreshTokenVal);
 
     //인증 토큰쌍 저장
     authTokenPairRepository.save(authTokenPair);

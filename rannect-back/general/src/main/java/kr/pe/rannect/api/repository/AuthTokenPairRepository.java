@@ -7,5 +7,5 @@ package kr.pe.rannect.api.repository;
 import kr.pe.rannect.api.domain.AuthTokenPair;
 import org.springframework.data.repository.CrudRepository;
 
-public interface AuthTokenPairRepository extends CrudRepository<AuthTokenPair, String> {
+public interface AuthTokenPairRepository extends CrudRepository<AuthTokenPair, Long> {
 }
