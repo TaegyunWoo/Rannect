@@ -9,11 +9,13 @@ import kr.pe.rannect.api.mapper.AuthTokenPairMapper;
 import kr.pe.rannect.api.repository.AuthTokenPairRepository;
 import kr.pe.rannect.api.utils.token.JwtTokenIssuer;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import static kr.pe.rannect.api.dto.AuthTokenPairDto.AuthTokenPairResponse;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class TokenService {
@@ -30,6 +32,9 @@ public class TokenService {
     authTokenPairRepository.save(authTokenPair);
 
     AuthTokenPairResponse response = AuthTokenPairMapper.INSTANCE.toResponseDto(authTokenPair);
+
+    log.info("[Service] New token pair(memberPk: {}) issued", memberPk);
+
     return response;
   }
 }

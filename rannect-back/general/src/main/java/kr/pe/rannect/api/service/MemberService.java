@@ -10,6 +10,7 @@ import kr.pe.rannect.api.exception.InvalidValueException;
 import kr.pe.rannect.api.mapper.MemberMapper;
 import kr.pe.rannect.api.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import static kr.pe.rannect.api.dto.AuthTokenPairDto.AuthTokenPairResponse;
 import static kr.pe.rannect.api.dto.MemberDto.*;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class MemberService {
@@ -41,6 +43,9 @@ public class MemberService {
     memberRepository.save(member);
 
     MemberResponse response = MemberMapper.INSTANCE.toResponseDto(member);
+
+    log.info("[Service] New user(account id: {}) signed up.", member.getAccountId());
+
     return response;
   }
 
@@ -59,6 +64,9 @@ public class MemberService {
 
     //토큰쌍 발급
     AuthTokenPairResponse tokenPairResponse = tokenService.issueNewAuthToken(member.getId());
+
+    log.info("[Service] User(memberPk: {}) signed in.", member.getId());
+
     return tokenPairResponse;
   }
 
