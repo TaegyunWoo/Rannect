@@ -16,7 +16,13 @@ public enum ErrorCode {
 
   //사용자
   DUPLICATED_ACCOUNT_ID(400, "M001", "Your account id is already existed"),
-  SIGN_IN_FAIL(401, "M002", "Your login info is incorrect")
+
+  //인증, 인가
+  SIGN_IN_FAIL(401, "A001", "Your login info is incorrect"),
+  CANNOT_FIND_ACCESS_TOKEN(401, "A002", "Your request has no access token"),
+  NO_BEARER(401, "A003", "Token Value must start with 'Bearer'"),
+  EXPIRED_TOKEN(401, "A004", "Token is expired"),
+  BAD_TOKEN(401, "A005", "Token is invalid"),
   ;
 
   private int status; //HTTP 오류 응답 상태 코드
