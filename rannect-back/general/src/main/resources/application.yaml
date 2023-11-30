@@ -14,6 +14,11 @@ springdoc:
     display-request-duration: true
     operations-sorter: alpha
 
+# SLF4J
+logging:
+  pattern:
+    console: '%date{"yyyy/MM/dd HH:mm:ss,SSS, UTC{GMT+9}"} [%p] [%t] %M\(%F:%L\) - %msg%n'
+
 spring:
   # JPA
   jpa:
