@@ -20,7 +20,7 @@ public class ServerAccessLoggingFilter implements Filter {
     HttpServletRequest httpServletRequest = (HttpServletRequest) request;
     String reqRemoteAddr = httpServletRequest.getRemoteAddr();
     String requestURI = httpServletRequest.getRequestURI();
-    log.info("[Access] User(" + reqRemoteAddr + ") request (" + requestURI + ")");
+    log.info("[Access] User({}) request ({})", reqRemoteAddr, requestURI);
 
     chain.doFilter(request, response);
   }
