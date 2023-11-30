@@ -5,7 +5,6 @@
 package kr.pe.rannect.api.controller;
 
 import kr.pe.rannect.api.controller.api.MemberApi;
-import kr.pe.rannect.api.dto.AuthTokenPairDto;
 import kr.pe.rannect.api.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,8 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
-import static kr.pe.rannect.api.dto.AuthTokenPairDto.*;
+import static kr.pe.rannect.api.dto.AuthTokenPairDto.AuthTokenPairResponse;
 import static kr.pe.rannect.api.dto.MemberDto.MemberRequest;
 import static kr.pe.rannect.api.dto.MemberDto.SignInRequest;
 
@@ -37,7 +38,9 @@ public class MemberController implements MemberApi {
     AuthTokenPairResponse authTokenPairResponse = memberService.signIn(request);
 
     //cookie
-    Cookie cookie = new Cookie("Access-Token", authTokenPairResponse.getAccessToken());
+    String cookieVal = null;
+    cookieVal = URLEncoder.encode("Bearer " + authTokenPairResponse.getAccessToken(), StandardCharsets.UTF_8);
+    Cookie cookie = new Cookie("Access-Token", cookieVal);
     cookie.setMaxAge(accessTokenValidMilliSec);
     cookie.setHttpOnly(true); //XSS 공격 방지
     cookie.setPath("/");
