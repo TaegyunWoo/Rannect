@@ -36,7 +36,7 @@ public class AuthInterceptor implements HandlerInterceptor {
     final String requestedIpAddr = request.getRemoteAddr();
 
     if (request.getCookies() == null) {
-      log.info("[Auth] User(" + requestedIpAddr + ") requested with no access token");
+      log.info("[Auth] User({}) requested with no access token.", requestedIpAddr);
       throw new AuthenticationException(ErrorCode.CANNOT_FIND_ACCESS_TOKEN);
     }
 
@@ -46,14 +46,14 @@ public class AuthInterceptor implements HandlerInterceptor {
         .map(Cookie::getValue)
         .findFirst()
         .orElseThrow(() -> {
-          log.info("[Auth] User(" + requestedIpAddr + ") requested with no access token");
+          log.info("[Auth] User({}) requested with no access token", requestedIpAddr);
           return new AuthenticationException(ErrorCode.CANNOT_FIND_ACCESS_TOKEN);
         });
     reqAccessToken = URLDecoder.decode(reqAccessToken, StandardCharsets.UTF_8);
 
     //2. Bearer로 시작하는지 확인
     if (!reqAccessToken.startsWith("Bearer ")) {
-      log.info("[Auth] User(" + requestedIpAddr + ") sent access token with no 'Bearer' in request header.");
+      log.info("[Auth] User({}) sent access token with no 'Bearer' in request header.", requestedIpAddr);
       throw new AuthenticationException(ErrorCode.NO_BEARER);
     }
     reqAccessToken = reqAccessToken.substring("Bearer ".length());
@@ -62,14 +62,14 @@ public class AuthInterceptor implements HandlerInterceptor {
     Claims claims = null;
     try {
       claims = jwtTokenParser.parseJwtToken(reqAccessToken).orElseThrow(() -> {
-        log.info("[Auth] User(" + requestedIpAddr + ") tried to access with access token without any claims.");
+        log.info("[Auth] User({}) tried to access with access token without any claims.", requestedIpAddr);
         return new AuthenticationException(ErrorCode.BAD_TOKEN);
       });
     } catch (ExpiredJwtException ex) {
-      log.info("[Auth] User(" + requestedIpAddr + ") tried to access with expired access token.");
+      log.info("[Auth] User({}) tried to access with expired access token.", requestedIpAddr);
       throw new AuthenticationException(ErrorCode.EXPIRED_TOKEN);
     } catch (JwtException ex) {
-      log.info("[Auth] User(" + requestedIpAddr + ") tried to access with bad access token.");
+      log.info("[Auth] User({}) tried to access with bad access token.", requestedIpAddr);
       throw new AuthenticationException(ErrorCode.BAD_TOKEN);
     }
 
@@ -77,14 +77,14 @@ public class AuthInterceptor implements HandlerInterceptor {
     long memberPk = claims.get("memberPk", Long.class);
     authTokenPairRepository.findById(memberPk)
         .orElseThrow(() -> {
-          log.info("[Auth] User(" + requestedIpAddr + ") tried to access without saved access token.");
+          log.info("[Auth] User({}) tried to access without saved access token.", requestedIpAddr);
           return new AuthenticationException(ErrorCode.BAD_TOKEN);
         });
 
     //5. 인가받은 사용자 정보를 Argument Resolver에게 넘겨주기 위해, attribute 추가
     request.setAttribute("memberPk", memberPk);
 
-    log.info("[Auth] User(" + requestedIpAddr + ") is authorized.");
+    log.info("[Auth] User({}) is authorized.", requestedIpAddr);
     return true;
   }
 }
