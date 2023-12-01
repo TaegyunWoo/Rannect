@@ -42,7 +42,7 @@ function SignUpModal({
                     type="text"
                     className="form-control"
                     id="signUpUserId"
-                    placeholder="4자리 이상, 12자리 이하, 영문"
+                    placeholder="4자리 이상, 12자리 이하, 영문 및 숫자"
                     name="userId"
                   />
                 </div>
@@ -58,7 +58,7 @@ function SignUpModal({
                     type="password"
                     className="form-control"
                     id="signUpPassword"
-                    placeholder="6자 이상, 12자 이하, 영어, 숫자"
+                    placeholder="6자 이상, 15자 이하, 영어, 숫자"
                     name="password"
                   />
                 </div>

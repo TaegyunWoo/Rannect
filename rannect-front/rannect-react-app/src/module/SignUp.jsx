@@ -23,11 +23,11 @@ function SignUp({ show, handleHideBasic }) {
         } else if (res.code === "C001" && res.fieldErrors.length > 0) {
           if (res.fieldErrors[0].field === "accountId") {
             setApiResErrMsg(
-              () => "아이디는 4자 이상, 12자 이하, 영문만 가능합니다."
+              () => "아이디는 4자 이상, 12자 이하, 영문자 및 숫자만 가능합니다."
             );
           } else if (res.fieldErrors[0].field === "rawPassword") {
             setApiResErrMsg(
-              () => "비밀번호는 6자 이상, 12자 이하, 영문 및 숫자만 가능합니다."
+              () => "비밀번호는 6자 이상, 15자 이하, 영문 및 숫자만 가능합니다."
             );
           } else if (res.fieldErrors[0].field === "nickname") {
             setApiResErrMsg(
