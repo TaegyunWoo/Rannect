@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SignInModal from "../component/modal/SignInModal";
 import callSignInAPI from "../api/member/SignInAPI";
 
-function SignIn({ show, handleHideBasic }) {
+function SignIn({ show, handleHideBasic, setSignInState }) {
   const [signInFormData, setSignInFormData] = useState({});
   const [apiResErrMsg, setApiResErrMsg] = useState("");
 
@@ -24,6 +24,7 @@ function SignIn({ show, handleHideBasic }) {
       } else {
         localStorage.setItem("refreshToken", res.refreshToken);
         handleHideWithClearState();
+        setSignInState(true);
       }
     });
   };

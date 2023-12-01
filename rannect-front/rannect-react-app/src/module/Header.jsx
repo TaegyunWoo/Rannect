@@ -5,9 +5,8 @@ import NotLoginedBtns from "../component/header/NotLoginedBtns";
 import UserSettingModal from "../component/modal/UserSettingModal";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
-import SignInModal from "../component/modal/SignInModal";
 
-function Header() {
+function Header({ signInState, setSignInState }) {
   const [showSignUpModal, setShowSignUpModal] = useState(false);
   const [showSignInModal, setShowSignInModal] = useState(false);
   const [showUserSettingModal, setShowUserSettingModal] = useState(false);
@@ -31,39 +30,38 @@ function Header() {
     setShowUserSettingModal(!showUserSettingModal);
   };
 
-  // 로그인 상태라면 아래 반환
-  // return (
-  //   <>
-  //     <MainHeader btns={<LoginedBtns handleClick={handleUserSettingModal} />} />
-  //     <UserSettingModal show={showUserSettingModal} />
-  //   </>
-  // );
-  // signUpAPI({
-  //   newAccountId: "hello",
-  //   newPassword: "myPassword",
-  //   newNickname: "myNickname",
-  //   interestedIn: "hihihihihi",
-  // });
-  return (
-    <>
-      <MainHeader
-        btns={
-          <NotLoginedBtns
-            handleSignUpClick={handleShowSignUpModal}
-            handleSignInClick={handleSignInModal}
-          />
-        }
-      />
-      <SignUp show={showSignUpModal} handleHideBasic={handleHideSignUpModal} />
-      <SignIn show={showSignInModal} handleHideBasic={handleSignInModal} />
-    </>
-  );
-  // return (
-  //   <>
-  //     <MainHeader btns={<LoginedBtns handleClick={handleUserSettingModal} />} />
-  //     <UserSettingModal show={showUserSettingModal} />
-  //   </>
-  // );
+  if (signInState) {
+    return (
+      <>
+        <MainHeader
+          btns={<LoginedBtns handleClick={handleUserSettingModal} />}
+        />
+        <UserSettingModal show={showUserSettingModal} />
+      </>
+    );
+  } else {
+    return (
+      <>
+        <MainHeader
+          btns={
+            <NotLoginedBtns
+              handleSignUpClick={handleShowSignUpModal}
+              handleSignInClick={handleSignInModal}
+            />
+          }
+        />
+        <SignUp
+          show={showSignUpModal}
+          handleHideBasic={handleHideSignUpModal}
+        />
+        <SignIn
+          show={showSignInModal}
+          handleHideBasic={handleSignInModal}
+          setSignInState={setSignInState}
+        />
+      </>
+    );
+  }
 }
 
 export default Header;
