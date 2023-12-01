@@ -25,8 +25,8 @@ import static kr.pe.rannect.api.dto.MemberDto.SignInRequest;
 @RestController
 public class MemberController implements MemberApi {
   private final MemberService memberService;
-  @Value("${jwt.accessTokenValidMilliSec}")
-  private int accessTokenValidMilliSec; //Refresh Token 유효시간
+  @Value("${jwt.refreshTokenValidMilliSec}")
+  private int refreshTokenValidMilliSec; //Refresh Token 유효시간
 
   @Override
   public void signUp(MemberRequest request) {
@@ -37,14 +37,22 @@ public class MemberController implements MemberApi {
   public ResponseEntity<AuthTokenPairResponse> signIn(SignInRequest request, HttpServletResponse response) {
     AuthTokenPairResponse authTokenPairResponse = memberService.signIn(request);
 
-    //cookie
-    String cookieVal = null;
-    cookieVal = URLEncoder.encode("Bearer " + authTokenPairResponse.getAccessToken(), StandardCharsets.UTF_8);
-    Cookie cookie = new Cookie("Access-Token", cookieVal);
-    cookie.setMaxAge(accessTokenValidMilliSec);
-    cookie.setHttpOnly(true); //XSS 공격 방지
-    cookie.setPath("/");
-    response.addCookie(cookie);
+    //access token cookie
+    String tokenCookieVal = null;
+    tokenCookieVal = URLEncoder.encode("Bearer " + authTokenPairResponse.getAccessToken(), StandardCharsets.UTF_8);
+    Cookie tokenCookie = new Cookie("Access-Token", tokenCookieVal);
+    tokenCookie.setMaxAge(refreshTokenValidMilliSec); //재발급시 만료된 Access Token 값이 필요하기에, 유효기한을 refresh 토큰과 동일하게 설정
+    tokenCookie.setHttpOnly(true); //XSS 공격 방지
+    tokenCookie.setPath("/");
+    response.addCookie(tokenCookie);
+
+    //access token exist cookie
+    Cookie existTokenCookie = new Cookie("Exist-Access-Token",
+        URLEncoder.encode("true", StandardCharsets.UTF_8)
+    );
+    existTokenCookie.setPath("/");
+    existTokenCookie.setMaxAge(refreshTokenValidMilliSec);
+    response.addCookie(existTokenCookie);
 
     return new ResponseEntity<>(authTokenPairResponse, HttpStatus.OK);
   }
