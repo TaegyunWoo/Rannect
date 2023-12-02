@@ -7,7 +7,7 @@ package kr.pe.rannect.api.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
-public class AuthTokenPairDto {
+public class AuthTokenDto {
   @Getter
   @Setter
   @NoArgsConstructor

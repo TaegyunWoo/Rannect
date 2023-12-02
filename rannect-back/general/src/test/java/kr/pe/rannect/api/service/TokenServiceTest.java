@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import static kr.pe.rannect.api.dto.AuthTokenPairDto.AuthTokenPairResponse;
+import static kr.pe.rannect.api.dto.AuthTokenDto.AuthTokenPairResponse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;

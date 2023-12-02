@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
-import static kr.pe.rannect.api.dto.AuthTokenPairDto.AuthTokenPairResponse;
+import static kr.pe.rannect.api.dto.AuthTokenDto.AuthTokenPairResponse;
 import static kr.pe.rannect.api.dto.MemberDto.MemberRequest;
 import static kr.pe.rannect.api.dto.MemberDto.SignInRequest;
 

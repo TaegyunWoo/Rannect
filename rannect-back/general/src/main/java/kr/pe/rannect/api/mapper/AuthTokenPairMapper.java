@@ -5,7 +5,7 @@
 package kr.pe.rannect.api.mapper;
 
 import kr.pe.rannect.api.domain.AuthTokenPair;
-import kr.pe.rannect.api.dto.AuthTokenPairDto;
+import kr.pe.rannect.api.dto.AuthTokenDto;
 import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -22,5 +22,5 @@ public interface AuthTokenPairMapper {
 
   @Mapping(source = "accessToken", target = "accessToken")
   @Mapping(source = "refreshToken", target = "refreshToken")
-  AuthTokenPairDto.AuthTokenPairResponse toResponseDto(AuthTokenPair entity);
+  AuthTokenDto.AuthTokenPairResponse toResponseDto(AuthTokenPair entity);
 }

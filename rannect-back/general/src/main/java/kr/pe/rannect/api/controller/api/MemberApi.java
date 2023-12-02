@@ -9,7 +9,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import kr.pe.rannect.api.dto.AuthTokenPairDto;
+import kr.pe.rannect.api.dto.AuthTokenDto;
 import kr.pe.rannect.api.dto.ErrorResponseDto;
 import kr.pe.rannect.api.dto.MemberDto;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +35,7 @@ public interface MemberApi {
   @ApiResponse(responseCode = "200", description = "로그인 성공")
   @ApiResponse(responseCode = "401", description = "로그인 실패", content = {@Content(schema = @Schema(implementation = ErrorResponseDto.class))})
   @PostMapping("/sign-in")
-  ResponseEntity<AuthTokenPairDto.AuthTokenPairResponse> signIn(
+  ResponseEntity<AuthTokenDto.AuthTokenPairResponse> signIn(
       @RequestBody MemberDto.SignInRequest request,
       HttpServletResponse response
   );

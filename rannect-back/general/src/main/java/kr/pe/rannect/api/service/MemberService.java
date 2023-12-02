@@ -15,7 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import static kr.pe.rannect.api.dto.AuthTokenPairDto.AuthTokenPairResponse;
+import static kr.pe.rannect.api.dto.AuthTokenDto.AuthTokenPairResponse;
 import static kr.pe.rannect.api.dto.MemberDto.*;
 
 @Slf4j

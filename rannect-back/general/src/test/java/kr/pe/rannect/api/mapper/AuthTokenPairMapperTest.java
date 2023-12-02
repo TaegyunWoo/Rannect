@@ -3,7 +3,7 @@ package kr.pe.rannect.api.mapper;
 import kr.pe.rannect.api.domain.AuthTokenPair;
 import org.junit.jupiter.api.Test;
 
-import static kr.pe.rannect.api.dto.AuthTokenPairDto.AuthTokenPairResponse;
+import static kr.pe.rannect.api.dto.AuthTokenDto.AuthTokenPairResponse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AuthTokenPairMapperTest {
