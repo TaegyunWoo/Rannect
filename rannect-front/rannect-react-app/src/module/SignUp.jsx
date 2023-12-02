@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import SignUpModal from "../component/modal/SignUpModal";
 import callSignUpAPI from "../api/member/SignUpAPI";
+import callSignInAPI from "../api/member/SignInAPI";
 
-function SignUp({ show, handleHideBasic }) {
+function SignUp({ show, handleHideBasic, setSignInState }) {
   const [signUpFormData, setSignUpFormData] = useState({});
   const [apiResErrMsg, setApiResErrMsg] = useState("");
 
@@ -40,6 +41,10 @@ function SignUp({ show, handleHideBasic }) {
           }
         }
       } else {
+        callSignInAPI(signUpFormData, () => {
+          localStorage.setItem("refreshToken", res.refreshToken);
+          setSignInState(true);
+        });
         handleHideWithClearState();
       }
     });

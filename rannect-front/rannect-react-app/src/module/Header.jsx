@@ -53,6 +53,7 @@ function Header({ signInState, setSignInState }) {
         <SignUp
           show={showSignUpModal}
           handleHideBasic={handleHideSignUpModal}
+          setSignInState={setSignInState}
         />
         <SignIn
           show={showSignInModal}
