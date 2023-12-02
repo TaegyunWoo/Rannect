@@ -17,37 +17,42 @@ function SignUp({ show, handleHideBasic, setSignInState }) {
 
   const handleSignUpSubmit = (e) => {
     e.preventDefault();
-    callSignUpAPI(signUpFormData, (res) => {
-      if (Object.keys(res).includes("code")) {
-        if (res.code === "M001") {
+    callSignUpAPI(
+      signUpFormData,
+      () => {
+        //SignUp 성공시
+        callSignInAPI(signUpFormData, (res) => {
+          localStorage.setItem("refreshToken", res.refreshToken);
+          handleHideWithClearState();
+          setSignInState(true);
+        });
+        handleHideWithClearState();
+      },
+      (errRes) => {
+        //SignUp 실패시
+        if (errRes.code === "M001") {
           setApiResErrMsg(() => "아이디가 이미 존재합니다.");
-        } else if (res.code === "C001" && res.fieldErrors.length > 0) {
-          if (res.fieldErrors[0].field === "accountId") {
+        } else if (errRes.code === "C001" && errRes.fieldErrors.length > 0) {
+          if (errRes.fieldErrors[0].field === "accountId") {
             setApiResErrMsg(
               () => "아이디는 4자 이상, 12자 이하, 영문자 및 숫자만 가능합니다."
             );
-          } else if (res.fieldErrors[0].field === "rawPassword") {
+          } else if (errRes.fieldErrors[0].field === "rawPassword") {
             setApiResErrMsg(
               () => "비밀번호는 6자 이상, 15자 이하, 영문 및 숫자만 가능합니다."
             );
-          } else if (res.fieldErrors[0].field === "nickname") {
+          } else if (errRes.fieldErrors[0].field === "nickname") {
             setApiResErrMsg(
               () => "닉네임은 2자 이상, 15자 이하, 영문·한글·숫자만 가능합니다."
             );
-          } else if (res.fieldErrors[0].field === "interestedIn") {
+          } else if (errRes.fieldErrors[0].field === "interestedIn") {
             setApiResErrMsg(
               () => "관심 주제는 50자 이하, 영문·한글·숫자만 가능합니다."
             );
           }
         }
-      } else {
-        callSignInAPI(signUpFormData, () => {
-          localStorage.setItem("refreshToken", res.refreshToken);
-          setSignInState(true);
-        });
-        handleHideWithClearState();
       }
-    });
+    );
   };
 
   const handleHideWithClearState = () => {

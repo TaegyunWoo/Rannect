@@ -16,17 +16,21 @@ function SignIn({ show, handleHideBasic, setSignInState }) {
 
   const handleSignInSubmit = (e) => {
     e.preventDefault();
-    callSignInAPI(signInFormData, (res) => {
-      if (Object.keys(res).includes("code")) {
-        if (res.code === "M002") {
-          setApiResErrMsg(() => "로그인 정보가 틀립니다.");
-        }
-      } else {
+    callSignInAPI(
+      signInFormData,
+      (res) => {
+        //SignIn 성공시
         localStorage.setItem("refreshToken", res.refreshToken);
         handleHideWithClearState();
         setSignInState(true);
+      },
+      (errRes) => {
+        //SignIn 실패시
+        if (errRes.code === "M002") {
+          setApiResErrMsg(() => "로그인 정보가 틀립니다.");
+        }
       }
-    });
+    );
   };
 
   const handleHideWithClearState = () => {
