@@ -94,5 +94,8 @@ public class TokenService {
     return issueNewAuthToken(memberPk);
   }
 
-
+  @Transactional
+  public void deleteTokenPair(long memberPk) {
+    authTokenPairRepository.deleteById(memberPk);
+  }
 }

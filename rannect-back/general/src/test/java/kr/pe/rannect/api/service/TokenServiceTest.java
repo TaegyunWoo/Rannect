@@ -237,4 +237,16 @@ class TokenServiceTest {
       fail(ex);
     }
   }
+
+  @Test
+  void 로그아웃() {
+    //GIVEN
+    long memberPk = 1L;
+
+    //WHEN
+    tokenService.deleteTokenPair(memberPk);
+
+    //THEN
+    then(authTokenPairRepository).should(times(1)).deleteById(memberPk);
+  }
 }

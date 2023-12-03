@@ -11,8 +11,10 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import kr.pe.rannect.api.dto.AuthTokenDto;
 import kr.pe.rannect.api.dto.ErrorResponseDto;
+import kr.pe.rannect.api.dto.LoginInfo;
 import kr.pe.rannect.api.dto.MemberDto;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,4 +41,11 @@ public interface MemberApi {
       @RequestBody MemberDto.SignInRequest request,
       HttpServletResponse response
   );
+
+  @Operation(summary = "로그아웃")
+  @ApiResponse(responseCode = "200", description = "로그아웃 성공")
+  @GetMapping("/sign-out")
+  void signOut(
+      LoginInfo loginInfo,
+      HttpServletResponse response);
 }
