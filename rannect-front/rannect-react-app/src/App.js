@@ -4,8 +4,14 @@ import Header from "./module/Header";
 
 function App() {
   const [existAccessToken, setExistAccessToken] = useState(
-    document.cookie.match("Exist-Access-Token=true;") ? true : false
+    document.cookie.match("Exist-Access-Token=true") ? true : false
   );
+
+  useEffect(() => {
+    setExistAccessToken(
+      document.cookie.match("Exist-Access-Token=true") ? true : false
+    );
+  });
 
   return (
     <div className="App">
