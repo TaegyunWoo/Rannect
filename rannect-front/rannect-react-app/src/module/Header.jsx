@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import MainHeader from "../component/header/MainHeader";
 import LoginedBtns from "../component/header/LoginedBtns";
 import NotLoginedBtns from "../component/header/NotLoginedBtns";
-import UserSettingModal from "../component/modal/UserSettingModal";
+import UserSetting from "./UserSetting";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
 
@@ -36,7 +36,11 @@ function Header({ signInState, setSignInState }) {
         <MainHeader
           btns={<LoginedBtns handleClick={handleUserSettingModal} />}
         />
-        <UserSettingModal show={showUserSettingModal} />
+        <UserSetting
+          show={showUserSettingModal}
+          handleHideBasic={handleUserSettingModal}
+          setSignInState={setSignInState}
+        />
       </>
     );
   } else {

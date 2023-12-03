@@ -1,10 +1,17 @@
 import React from "react";
+import Modal from "react-bootstrap/Modal";
 
 //사용자 설정 모달창
-function UserSettingModal({ show }) {
+function UserSettingModal({
+  show,
+  handleHide,
+  handleChange,
+  handleSubmit,
+  handleLogout,
+  errMsg,
+}) {
   return (
-    <div style={show ? { display: "block" } : { display: "none" }}>
-      <div className="modal-dialog">
+    <Modal show={show} onHide={handleHide}>
         <div className="modal-content">
           {/* Modal Header */}
           <div className="modal-header">
@@ -49,7 +56,11 @@ function UserSettingModal({ show }) {
                   </div>
                 </div>
                 <div className="row mx-3 my-3 rounded text-center py-1 form-item">
-                  <button className="btn" style={{ color: "whitesmoke" }}>
+                  <button
+                    className="btn"
+                    style={{ color: "whitesmoke" }}
+                    onClick={handleLogout}
+                  >
                     로그아웃
                   </button>
                 </div>
@@ -76,8 +87,7 @@ function UserSettingModal({ show }) {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+    </Modal>
   );
 }
 
