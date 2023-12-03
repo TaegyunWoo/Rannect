@@ -28,6 +28,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
             "/",
             "/members",
             "/members/sign-in",
+            "/auth/reissue-tokens",
             "/error");
   }
 }

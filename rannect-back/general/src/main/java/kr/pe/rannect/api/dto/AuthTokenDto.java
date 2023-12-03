@@ -13,6 +13,25 @@ public class AuthTokenDto {
   @NoArgsConstructor
   @AllArgsConstructor
   @Builder
+  public static class ExpiredAccessToken {
+    private String expiredAccessToken;
+  }
+
+  @Getter
+  @Setter
+  @NoArgsConstructor
+  @AllArgsConstructor
+  @Builder
+  public static class ValidRefreshToken {
+    @Schema(description = "유효한 Refresh token")
+    private String validRefreshToken;
+  }
+
+  @Getter
+  @Setter
+  @NoArgsConstructor
+  @AllArgsConstructor
+  @Builder
   public static class AuthTokenPairResponse {
     @Schema(description = "Access Token Value")
     private String accessToken;

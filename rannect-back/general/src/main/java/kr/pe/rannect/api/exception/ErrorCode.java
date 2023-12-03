@@ -23,6 +23,7 @@ public enum ErrorCode {
   NO_BEARER(401, "A003", "Token Value must start with 'Bearer'"),
   EXPIRED_TOKEN(401, "A004", "Token is expired"),
   BAD_TOKEN(401, "A005", "Token is invalid"),
+  NOT_EXPIRED_ACCESS_TOKEN(401, "A006", "You can reissue tokens when access token is expired"),
   ;
 
   private int status; //HTTP 오류 응답 상태 코드
