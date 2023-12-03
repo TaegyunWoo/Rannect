@@ -27,4 +27,8 @@ public interface MemberMapper {
   @Mapping(source = "nickname", target = "nickname")
   @Mapping(source = "interestedIn", target = "interestedIn")
   MemberDto.MemberResponse toResponseDto(Member entity);
+
+  @Mapping(source = "nickname", target = "nickname")
+  @Mapping(source = "interestedIn", target = "interestedIn")
+  MemberDto.MemberUpdateResponse toUpdateResponseDto(Member entity);
 }

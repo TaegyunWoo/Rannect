@@ -44,6 +44,34 @@ public class MemberDto {
   @NoArgsConstructor
   @AllArgsConstructor
   @Builder
+  public static class MemberUpdateRequest {
+    @Schema(description = "2자 이상, 15자 이하, 영문·한글·숫자 가능", example = "myNickname")
+    @NotNull
+    @Length(min = 2, max = 15)
+    @Pattern(regexp = "[a-zA-Z0-9가-힣]*")
+    private String nickname;
+    @Schema(description = "50자 이하", example = "축구에 관심이 많아요~!")
+    @Length(max = 50)
+    private String interestedIn;
+  }
+
+  @Getter
+  @Setter
+  @NoArgsConstructor
+  @AllArgsConstructor
+  @Builder
+  public static class MemberUpdateResponse {
+    @Schema(description = "닉네임", example = "myNickname")
+    private String nickname;
+    @Schema(description = "관심있는 주제", example = "축구에 관심이 많아요~!")
+    private String interestedIn;
+  }
+
+  @Getter
+  @Setter
+  @NoArgsConstructor
+  @AllArgsConstructor
+  @Builder
   public static class MemberResponse {
     @Schema()
     private long pk;

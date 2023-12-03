@@ -70,4 +70,14 @@ public class MemberService {
     return tokenPairResponse;
   }
 
+  @Transactional
+  public MemberUpdateResponse updateMember(long targetMemberPk, MemberUpdateRequest request) {
+    Member targetMember = memberRepository.findById(targetMemberPk)
+        .orElseThrow(() -> new InvalidValueException(ErrorCode.NOT_FOUND_DATA));
+    targetMember.update(request.getNickname(), request.getInterestedIn());
+
+    log.info("[Service] User(memberPk: {}) updated.", targetMemberPk);
+
+    return MemberMapper.INSTANCE.toUpdateResponseDto(targetMember);
+  }
 }

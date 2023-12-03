@@ -4,6 +4,7 @@
  */
 package kr.pe.rannect.api.controller.api;
 
+import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -14,10 +15,7 @@ import kr.pe.rannect.api.dto.ErrorResponseDto;
 import kr.pe.rannect.api.dto.LoginInfo;
 import kr.pe.rannect.api.dto.MemberDto;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -47,5 +45,15 @@ public interface MemberApi {
   @GetMapping("/sign-out")
   void signOut(
       LoginInfo loginInfo,
-      HttpServletResponse response);
+      HttpServletResponse response
+  );
+
+  @Operation(summary = "회원정보 수정")
+  @ApiResponse(responseCode = "200", description = "회원정보 수정 성공")
+  @ApiResponse(responseCode = "400", description = "입력 형식 오류, 조건사항 비만족", content = {@Content(schema = @Schema(implementation = ErrorResponseDto.class))})
+  @PatchMapping("/me")
+  MemberDto.MemberUpdateResponse updateMember(
+      LoginInfo loginInfo,
+      @RequestBody @Valid MemberDto.MemberUpdateRequest request
+  );
 }

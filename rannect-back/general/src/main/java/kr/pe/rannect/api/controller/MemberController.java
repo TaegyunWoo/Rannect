@@ -6,9 +6,11 @@ package kr.pe.rannect.api.controller;
 
 import kr.pe.rannect.api.controller.api.MemberApi;
 import kr.pe.rannect.api.dto.LoginInfo;
+import kr.pe.rannect.api.dto.MemberDto;
 import kr.pe.rannect.api.service.MemberService;
 import kr.pe.rannect.api.service.TokenService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,9 +22,11 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 import static kr.pe.rannect.api.dto.AuthTokenDto.AuthTokenPairResponse;
+import static kr.pe.rannect.api.dto.MemberDto.*;
 import static kr.pe.rannect.api.dto.MemberDto.MemberRequest;
 import static kr.pe.rannect.api.dto.MemberDto.SignInRequest;
 
+@Slf4j
 @RequiredArgsConstructor
 @RestController
 public class MemberController implements MemberApi {
@@ -80,5 +84,12 @@ public class MemberController implements MemberApi {
     existTokenCookie.setPath(COOKIE_PATH);
     existTokenCookie.setMaxAge(0);
     response.addCookie(existTokenCookie);
+
+    log.info("[Controller] User(memberPk: {}) is signed out successfully.", loginInfo.getMemberPk());
+  }
+
+  @Override
+  public MemberUpdateResponse updateMember(LoginInfo loginInfo, MemberUpdateRequest request) {
+    return memberService.updateMember(loginInfo.getMemberPk(), request);
   }
 }

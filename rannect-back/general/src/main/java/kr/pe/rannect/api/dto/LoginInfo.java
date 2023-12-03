@@ -4,8 +4,10 @@
  */
 package kr.pe.rannect.api.dto;
 
+import io.swagger.v3.oas.annotations.Hidden;
 import lombok.*;
 
+@Hidden
 @Getter
 @Setter
 @NoArgsConstructor

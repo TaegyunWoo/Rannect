@@ -33,4 +33,10 @@ public class Member extends BaseTimeEntity {
   @OneToMany(mappedBy = "member", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
   @Builder.Default
   private List<ChatMember> chatMemberList = new ArrayList<>();
+
+  //편의 메서드
+  public void update(String nickname, String interestedIn) {
+    this.nickname = nickname;
+    this.interestedIn = interestedIn;
+  }
 }

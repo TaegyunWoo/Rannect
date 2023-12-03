@@ -176,4 +176,61 @@ class MemberServiceTest {
     then(memberRepository).should(times(1)).findByAccountId(anyString());
     then(passwordEncoder).should(times(1)).matches(anyString(), anyString());
   }
+
+  @Test
+  void 사용자_정보_업데이트() {
+    //GIVEN
+    long targetMemberPk = 1L;
+    String updatedNickname = "new nickname";
+    String updatedInterestedIn = "new interested in";
+    MemberUpdateRequest request = MemberUpdateRequest.builder()
+        .nickname(updatedNickname)
+        .interestedIn(updatedInterestedIn)
+        .build();
+    Member targetMember = Member.builder()
+        .nickname("old nickname")
+        .interestedIn("old interested in")
+        .build();
+
+    //(mock)
+    given(memberRepository.findById(targetMemberPk)).willReturn(Optional.of(targetMember));
+
+    //WHEN
+    MemberUpdateResponse result = memberService.updateMember(targetMemberPk, request);
+
+    //THEN
+    assertEquals(updatedNickname, result.getNickname());
+    assertEquals(updatedInterestedIn, result.getInterestedIn());
+  }
+
+  @Test
+  void 잘못된_target_pk로_사용자_정보_업데이트() {
+    //GIVEN
+    long wrongTargetMemberPk = 1L;
+    String updatedNickname = "new nickname";
+    String updatedInterestedIn = "new interested in";
+    MemberUpdateRequest request = MemberUpdateRequest.builder()
+        .nickname(updatedNickname)
+        .interestedIn(updatedInterestedIn)
+        .build();
+    Member targetMember = Member.builder()
+        .nickname("old nickname")
+        .interestedIn("old interested in")
+        .build();
+
+    //(mock)
+    given(memberRepository.findById(wrongTargetMemberPk)).willReturn(Optional.empty());
+
+    //WHEN
+    try {
+      memberService.updateMember(wrongTargetMemberPk, request);
+
+      //THEN
+      fail();
+    } catch (InvalidValueException ex) {
+      assertEquals(ErrorCode.NOT_FOUND_DATA, ex.getErrorCode());
+    } catch (Exception ex) {
+      fail(ex);
+    }
+  }
 }

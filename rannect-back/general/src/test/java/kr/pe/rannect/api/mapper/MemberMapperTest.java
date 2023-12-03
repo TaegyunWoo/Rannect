@@ -1,8 +1,10 @@
 package kr.pe.rannect.api.mapper;
 
 import kr.pe.rannect.api.domain.Member;
+import kr.pe.rannect.api.dto.MemberDto;
 import org.junit.jupiter.api.Test;
 
+import static kr.pe.rannect.api.dto.MemberDto.*;
 import static kr.pe.rannect.api.dto.MemberDto.MemberRequest;
 import static kr.pe.rannect.api.dto.MemberDto.MemberResponse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -47,5 +49,23 @@ class MemberMapperTest {
     assertEquals(entity.getAccountId(), result.getAccountId());
     assertEquals(entity.getNickname(), result.getNickname());
     assertEquals(entity.getInterestedIn(), result.getInterestedIn());
+  }
+
+  @Test
+  void EntityToUpdateResponseDto() {
+    //GIVEN
+    String nickname = "my nickname";
+    String interestedIn = "my interested in";
+    Member member = Member.builder()
+        .nickname(nickname)
+        .interestedIn(interestedIn)
+        .build();
+
+    //WHEN
+    MemberUpdateResponse result = MemberMapper.INSTANCE.toUpdateResponseDto(member);
+
+    //THEN
+    assertEquals(nickname, result.getNickname());
+    assertEquals(interestedIn, result.getInterestedIn());
   }
 }
