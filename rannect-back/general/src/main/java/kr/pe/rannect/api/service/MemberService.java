@@ -80,4 +80,12 @@ public class MemberService {
 
     return MemberMapper.INSTANCE.toUpdateResponseDto(targetMember);
   }
+
+  @Transactional(readOnly = true)
+  public MemberResponse inquiryMember(long memberPk) {
+    Member member = memberRepository.findById(memberPk).orElseThrow(
+        () -> new InvalidValueException(ErrorCode.NOT_FOUND_DATA)
+    );
+    return MemberMapper.INSTANCE.toResponseDto(member);
+  }
 }

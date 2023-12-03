@@ -92,4 +92,9 @@ public class MemberController implements MemberApi {
   public MemberUpdateResponse updateMember(LoginInfo loginInfo, MemberUpdateRequest request) {
     return memberService.updateMember(loginInfo.getMemberPk(), request);
   }
+
+  @Override
+  public MemberResponse getMyMemberInfo(LoginInfo loginInfo) {
+    return memberService.inquiryMember(loginInfo.getMemberPk());
+  }
 }

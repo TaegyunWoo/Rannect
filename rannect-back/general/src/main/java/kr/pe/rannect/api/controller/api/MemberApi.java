@@ -56,4 +56,11 @@ public interface MemberApi {
       LoginInfo loginInfo,
       @RequestBody @Valid MemberDto.MemberUpdateRequest request
   );
+
+  @Operation(summary = "회원정보 조회")
+  @ApiResponse(responseCode = "200", description = "회원정보 조회 성공")
+  @GetMapping("/me")
+  MemberDto.MemberResponse getMyMemberInfo(
+      LoginInfo loginInfo
+  );
 }

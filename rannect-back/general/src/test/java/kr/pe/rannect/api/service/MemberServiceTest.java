@@ -233,4 +233,49 @@ class MemberServiceTest {
       fail(ex);
     }
   }
+
+  @Test
+  void 유효한_memberPk로_회원정보_조회() {
+    //GIVEN
+    long validMemberPk = 1L;
+    Member member = Member.builder()
+        .id(validMemberPk)
+        .accountId("accountId")
+        .nickname("nickname")
+        .interestedIn("interested in")
+        .build();
+
+    //(mock)
+    given(memberRepository.findById(validMemberPk)).willReturn(Optional.of(member));
+
+    //WHEN
+    MemberResponse result = memberService.inquiryMember(validMemberPk);
+
+    //THEN
+    assertEquals(member.getId(), result.getPk());
+    assertEquals(member.getAccountId(), result.getAccountId());
+    assertEquals(member.getNickname(), result.getNickname());
+    assertEquals(member.getInterestedIn(), result.getInterestedIn());
+  }
+
+  @Test
+  void 존재하지_않는_memberPk로_회원정보_조회() {
+    //GIVEN
+    long notExistMemberPk = 1L;
+
+    //(mock)
+    given(memberRepository.findById(notExistMemberPk)).willReturn(Optional.empty());
+
+    //WHEN
+    try {
+      memberService.inquiryMember(notExistMemberPk);
+
+      //THEN
+      fail();
+    } catch (InvalidValueException ex) {
+      assertEquals(ErrorCode.NOT_FOUND_DATA, ex.getErrorCode());
+    } catch (Exception ex) {
+      fail(ex);
+    }
+  }
 }
