@@ -9,6 +9,7 @@ function UserSettingModal({
   handleSubmit,
   handleLogout,
   formValue,
+  succeedMsg,
   errMsg,
 }) {
   return (
@@ -23,7 +24,27 @@ function UserSettingModal({
         <div className="modal-body">
           {/* Form */}
           <div>
-            <form action="" onChange={handleChange}>
+            <form action="" onChange={handleChange} onSubmit={handleSubmit}>
+              {errMsg === undefined || errMsg !== "" ? (
+                <div
+                  className="col-sm-12 my-1 text-center"
+                  style={{ color: "red" }}
+                >
+                  {errMsg}
+                </div>
+              ) : (
+                <></>
+              )}
+              {succeedMsg === undefined || succeedMsg !== "" ? (
+                <div
+                  className="col-sm-12 my-1 text-center"
+                  style={{ color: "blue" }}
+                >
+                  {succeedMsg}
+                </div>
+              ) : (
+                <></>
+              )}
               <div className="row mx-3 my-3 rounded text-center py-1 form-item">
                 <div className="col-sm-3 align-self-center">
                   <label for="nicknameUpdate" className="form-label">
@@ -70,8 +91,10 @@ function UserSettingModal({
               <div className="mx-3 my-3 rounded text-center py-1">
                 <span className="float-start ms-5">
                   <button
+                    type="button"
                     className="btn"
                     style={{ backgroundColor: "#F8DCBF" }}
+                    onClick={handleHide}
                   >
                     취소
                   </button>
