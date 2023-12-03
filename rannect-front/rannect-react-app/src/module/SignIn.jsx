@@ -26,7 +26,7 @@ function SignIn({ show, handleHideBasic, setSignInState }) {
       },
       (errRes) => {
         //SignIn 실패시
-        if (errRes.code === "M002") {
+        if (errRes.code === "A001") {
           setApiResErrMsg(() => "로그인 정보가 틀립니다.");
         }
       }
