@@ -96,4 +96,16 @@ public class MemberDto {
     @NotBlank
     private String rawPassword;
   }
+
+  @Getter
+  @Setter
+  @NoArgsConstructor
+  @AllArgsConstructor
+  @Builder
+  public static class SignInResponse {
+    @Schema(description = "회원 정보")
+    private MemberResponse memberInfo;
+    @Schema(description = "토큰 정보")
+    private AuthTokenDto.AuthTokenPairResponse tokenInfo;
+  }
 }

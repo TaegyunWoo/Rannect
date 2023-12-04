@@ -50,7 +50,7 @@ public class MemberService {
   }
 
   @Transactional(readOnly = true)
-  public AuthTokenPairResponse signIn(SignInRequest request) {
+  public SignInResponse signIn(SignInRequest request) {
     //Account ID 확인
     String requestedAccountId = request.getAccountId();
     Member member = memberRepository.findByAccountId(requestedAccountId).orElseThrow(
@@ -67,7 +67,7 @@ public class MemberService {
 
     log.info("[Service] User(memberPk: {}) signed in.", member.getId());
 
-    return tokenPairResponse;
+    return MemberMapper.INSTANCE.toSignInResponseDto(member, tokenPairResponse);
   }
 
   @Transactional

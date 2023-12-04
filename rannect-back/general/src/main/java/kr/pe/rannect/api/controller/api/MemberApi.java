@@ -35,7 +35,7 @@ public interface MemberApi {
   @ApiResponse(responseCode = "200", description = "로그인 성공")
   @ApiResponse(responseCode = "401", description = "로그인 실패", content = {@Content(schema = @Schema(implementation = ErrorResponseDto.class))})
   @PostMapping("/sign-in")
-  ResponseEntity<AuthTokenDto.AuthTokenPairResponse> signIn(
+  ResponseEntity<MemberDto.SignInResponse> signIn(
       @RequestBody MemberDto.SignInRequest request,
       HttpServletResponse response
   );

@@ -36,13 +36,13 @@ public class MemberController implements MemberApi {
   }
 
   @Override
-  public ResponseEntity<AuthTokenPairResponse> signIn(SignInRequest request, HttpServletResponse response) {
-    AuthTokenPairResponse authTokenPairResponse = memberService.signIn(request);
+  public ResponseEntity<SignInResponse> signIn(SignInRequest request, HttpServletResponse response) {
+    SignInResponse signInResponse = memberService.signIn(request);
 
     //Access Token 쿠키 설정
-    cookieUtils.addAuthCookie(response, authTokenPairResponse.getAccessToken());
+    cookieUtils.addAuthCookie(response, signInResponse.getTokenInfo().getAccessToken());
 
-    return new ResponseEntity<>(authTokenPairResponse, HttpStatus.OK);
+    return new ResponseEntity<>(signInResponse, HttpStatus.OK);
   }
 
   @Override

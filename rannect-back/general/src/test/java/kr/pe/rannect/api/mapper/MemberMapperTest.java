@@ -1,9 +1,11 @@
 package kr.pe.rannect.api.mapper;
 
 import kr.pe.rannect.api.domain.Member;
+import kr.pe.rannect.api.dto.AuthTokenDto;
 import kr.pe.rannect.api.dto.MemberDto;
 import org.junit.jupiter.api.Test;
 
+import static kr.pe.rannect.api.dto.AuthTokenDto.*;
 import static kr.pe.rannect.api.dto.MemberDto.*;
 import static kr.pe.rannect.api.dto.MemberDto.MemberRequest;
 import static kr.pe.rannect.api.dto.MemberDto.MemberResponse;
@@ -67,5 +69,37 @@ class MemberMapperTest {
     //THEN
     assertEquals(nickname, result.getNickname());
     assertEquals(interestedIn, result.getInterestedIn());
+  }
+
+  @Test
+  void toSignInResponseDto() {
+    //GIVEN
+    long memberPk = 1L;
+    String accountId = "accountId";
+    String nickname = "nickname";
+    String interestedIn = "interestedIn";
+    Member member = Member.builder()
+        .id(memberPk)
+        .accountId(accountId)
+        .nickname(nickname)
+        .interestedIn(interestedIn)
+        .build();
+    String accessToken = "access token";
+    String refreshToken = "refresh token";
+    AuthTokenPairResponse authTokenPairResponse = AuthTokenPairResponse.builder()
+        .accessToken(accessToken)
+        .refreshToken(refreshToken)
+        .build();
+
+    //WHEN
+    SignInResponse result = MemberMapper.INSTANCE.toSignInResponseDto(member, authTokenPairResponse);
+
+    //THEN
+    assertEquals(memberPk, result.getMemberInfo().getPk());
+    assertEquals(accountId, result.getMemberInfo().getAccountId());
+    assertEquals(nickname, result.getMemberInfo().getNickname());
+    assertEquals(interestedIn, result.getMemberInfo().getInterestedIn());
+    assertEquals(accessToken, result.getTokenInfo().getAccessToken());
+    assertEquals(refreshToken, result.getTokenInfo().getRefreshToken());
   }
 }
