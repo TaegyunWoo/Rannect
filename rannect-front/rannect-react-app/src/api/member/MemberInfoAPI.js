@@ -10,7 +10,8 @@ async function call(succeedCallback, failCallback = (errResp) => {}) {
     succeedCallback(await response.json());
   } else if (response.status === 401) {
     const respJson = await response.json();
-    reissueToken(respJson);
+    await reissueToken(respJson);
+    call(succeedCallback, failCallback);
   } else {
     failCallback(await response.json());
   }

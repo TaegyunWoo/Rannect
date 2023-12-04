@@ -1,14 +1,14 @@
 import callReissueTokenAPI from "../api/auth/ReissueTokenAPI";
 import callDeleteAuthCookiesAPI from "../api/auth/DeleteAuthCookiesAPI";
 
-function ReissueToken({ code }) {
+async function ReissueToken({ code }) {
+  console.log("reissue started");
   const refreshToken = localStorage.getItem("refreshToken");
   if (refreshToken && code === "A004") {
-    callReissueTokenAPI(
+    await callReissueTokenAPI(
       { refreshToken },
       (res) => {
         localStorage.setItem("refreshToken", res.refreshToken);
-        console.log("reissue succeed!!");
       },
       () => {
         callDeleteAuthCookiesAPI();
