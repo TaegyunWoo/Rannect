@@ -6,7 +6,12 @@ import UserSetting from "./UserSetting";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
 
-function Header({ signInState, setSignInState }) {
+function Header({
+  signInState,
+  setSignInState,
+  currentUserInfo,
+  setCurrentUserInfo,
+}) {
   const [showSignUpModal, setShowSignUpModal] = useState(false);
   const [showSignInModal, setShowSignInModal] = useState(false);
   const [showUserSettingModal, setShowUserSettingModal] = useState(false);
@@ -34,12 +39,18 @@ function Header({ signInState, setSignInState }) {
     return (
       <>
         <MainHeader
-          btns={<LoginedBtns handleClick={handleUserSettingModal} />}
+          btns={
+            <LoginedBtns
+              handleClick={handleUserSettingModal}
+              nickname={currentUserInfo.nickname}
+            />
+          }
         />
         <UserSetting
           show={showUserSettingModal}
           handleHideBasic={handleUserSettingModal}
           setSignInState={setSignInState}
+          setCurrentUserInfo={setCurrentUserInfo}
         />
       </>
     );
@@ -63,6 +74,7 @@ function Header({ signInState, setSignInState }) {
           show={showSignInModal}
           handleHideBasic={handleSignInModal}
           setSignInState={setSignInState}
+          setCurrentUserInfo={setCurrentUserInfo}
         />
       </>
     );

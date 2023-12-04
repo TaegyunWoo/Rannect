@@ -4,7 +4,12 @@ import callSignOutAPI from "../api/member/SignOutApi";
 import callMemberInfoAPI from "../api/member/MemberInfoAPI";
 import callUpdateMyMemberInfoAPI from "../api/member/UpdateMyMemberInfoAPI";
 
-function UserSetting({ show, handleHideBasic, setSignInState }) {
+function UserSetting({
+  show,
+  handleHideBasic,
+  setSignInState,
+  setCurrentUserInfo,
+}) {
   const [formData, setFormData] = useState({});
   const [apiResErrMsg, setApiResErrMsg] = useState("");
   const [apiResSuccMsg, setApiResSuccMsg] = useState("");
@@ -23,6 +28,11 @@ function UserSetting({ show, handleHideBasic, setSignInState }) {
       formData,
       (res) => {
         setFormData(res);
+        setCurrentUserInfo((prev) => {
+          const newInfo = { ...prev };
+          newInfo.nickname = res.nickname;
+          return newInfo;
+        });
         setApiResSuccMsg("회원정보가 성공적으로 변경되었습니다.");
       },
       (errRes) => {

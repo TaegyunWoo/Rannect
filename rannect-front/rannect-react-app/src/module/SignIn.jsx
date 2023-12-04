@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SignInModal from "../component/modal/SignInModal";
 import callSignInAPI from "../api/member/SignInAPI";
 
-function SignIn({ show, handleHideBasic, setSignInState }) {
+function SignIn({ show, handleHideBasic, setSignInState, setCurrentUserInfo }) {
   const [signInFormData, setSignInFormData] = useState({});
   const [apiResErrMsg, setApiResErrMsg] = useState("");
 
@@ -18,9 +18,10 @@ function SignIn({ show, handleHideBasic, setSignInState }) {
     e.preventDefault();
     callSignInAPI(
       signInFormData,
-      (res) => {
+      ({ memberInfo, tokenInfo }) => {
         //SignIn 성공시
-        localStorage.setItem("refreshToken", res.refreshToken);
+        localStorage.setItem("refreshToken", tokenInfo.refreshToken);
+        setCurrentUserInfo(memberInfo);
         handleHideWithClearState();
         setSignInState(true);
       },
