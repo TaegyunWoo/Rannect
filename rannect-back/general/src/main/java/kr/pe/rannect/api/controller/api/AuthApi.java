@@ -11,11 +11,13 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import kr.pe.rannect.api.dto.AuthTokenDto;
 import kr.pe.rannect.api.dto.ErrorResponseDto;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Tag(name = "인가 관련 API")
 @RequestMapping("/auth")
@@ -26,6 +28,14 @@ public interface AuthApi {
   @PostMapping("/reissue-tokens")
   AuthTokenDto.AuthTokenPairResponse reissueAccessToken(
       @RequestBody AuthTokenDto.ValidRefreshToken validRefreshToken,
-      HttpServletRequest httpServletRequest
+      HttpServletRequest httpServletRequest,
+      HttpServletResponse response
+  );
+
+  @Operation(summary = "Auth 관련 쿠키 제거")
+  @ApiResponse(responseCode = "200", description = "쿠키 제거 성공")
+  @DeleteMapping("/cookies")
+  void deleteAuthCookies(
+      HttpServletResponse response
   );
 }

@@ -8,12 +8,14 @@ import kr.pe.rannect.api.controller.api.AuthApi;
 import kr.pe.rannect.api.exception.AuthenticationException;
 import kr.pe.rannect.api.exception.ErrorCode;
 import kr.pe.rannect.api.service.TokenService;
+import kr.pe.rannect.api.utils.http.CookieUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
@@ -26,9 +28,10 @@ import static kr.pe.rannect.api.dto.AuthTokenDto.*;
 @RestController
 public class AuthController implements AuthApi {
   private final TokenService tokenService;
+  private final CookieUtils cookieUtils;
 
   @Override
-  public AuthTokenPairResponse reissueAccessToken(ValidRefreshToken validRefreshToken, HttpServletRequest httpServletRequest) {
+  public AuthTokenPairResponse reissueAccessToken(ValidRefreshToken validRefreshToken, HttpServletRequest httpServletRequest, HttpServletResponse response) {
     //Access Token 추출
     String reqAccessToken = Arrays.stream(httpServletRequest.getCookies())
         .filter(cookie -> cookie.getName().equals("Access-Token"))
@@ -47,6 +50,16 @@ public class AuthController implements AuthApi {
     }
     reqAccessToken = reqAccessToken.substring("Bearer ".length());
 
-    return tokenService.reissueAuthToken(reqAccessToken, validRefreshToken.getValidRefreshToken(), httpServletRequest.getRemoteAddr());
+    AuthTokenPairResponse authTokenPairResponse = tokenService.reissueAuthToken(reqAccessToken, validRefreshToken.getValidRefreshToken(), httpServletRequest.getRemoteAddr());
+
+    //Access Token 쿠키 추가
+    cookieUtils.addAuthCookie(response, authTokenPairResponse.getAccessToken());
+
+    return authTokenPairResponse;
+  }
+
+  @Override
+  public void deleteAuthCookies(HttpServletResponse response) {
+    cookieUtils.removeAuthCookie(response);
   }
 }
