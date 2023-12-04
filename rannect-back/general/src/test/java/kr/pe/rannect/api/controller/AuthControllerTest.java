@@ -17,9 +17,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
+import static kr.pe.rannect.api.dto.AuthTokenDto.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.times;
@@ -45,12 +45,16 @@ class AuthControllerTest {
     String refreshTokenVal = "my refresh token val";
     Cookie[] cookies = new Cookie[1];
     cookies[0] = new Cookie("Access-Token", URLEncoder.encode("Bearer " + accessTokenVal, StandardCharsets.UTF_8));
-    AuthTokenDto.ValidRefreshToken validRefreshToken = AuthTokenDto.ValidRefreshToken.builder()
+    ValidRefreshToken validRefreshToken = ValidRefreshToken.builder()
         .validRefreshToken("my refresh token val")
+        .build();
+    AuthTokenPairResponse authTokenPairResponse = AuthTokenPairResponse.builder()
+        .accessToken(accessTokenVal)
         .build();
 
     //(mock)
     given(request.getCookies()).willReturn(cookies);
+    given(tokenService.reissueAuthToken(anyString(), any(), any())).willReturn(authTokenPairResponse);
 
     //WHEN
     authController.reissueAccessToken(validRefreshToken, request, response);
@@ -66,7 +70,7 @@ class AuthControllerTest {
     String refreshTokenVal = "my refresh token val";
     Cookie[] cookies = new Cookie[1];
     cookies[0] = new Cookie("my-foo", "my_foo_val");
-    AuthTokenDto.ValidRefreshToken validRefreshToken = AuthTokenDto.ValidRefreshToken.builder()
+    ValidRefreshToken validRefreshToken = ValidRefreshToken.builder()
         .validRefreshToken("my refresh token val")
         .build();
 
@@ -85,7 +89,7 @@ class AuthControllerTest {
     String refreshTokenVal = "my refresh token val";
     Cookie[] cookies = new Cookie[1];
     cookies[0] = new Cookie("Access-Token", URLEncoder.encode(accessTokenVal, StandardCharsets.UTF_8));
-    AuthTokenDto.ValidRefreshToken validRefreshToken = AuthTokenDto.ValidRefreshToken.builder()
+    ValidRefreshToken validRefreshToken = ValidRefreshToken.builder()
         .validRefreshToken("my refresh token val")
         .build();
 
