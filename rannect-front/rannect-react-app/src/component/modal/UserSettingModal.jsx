@@ -47,7 +47,7 @@ function UserSettingModal({
               )}
               <div className="row mx-3 my-3 rounded text-center py-1 form-item">
                 <div className="col-sm-3 align-self-center">
-                  <label for="nicknameUpdate" className="form-label">
+                  <label htmlFor="nicknameUpdate" className="form-label">
                     닉네임
                   </label>
                 </div>
@@ -64,7 +64,7 @@ function UserSettingModal({
               </div>
               <div className="row mx-3 my-3 rounded text-center py-1 form-item">
                 <div className="col-sm-3 align-self-center">
-                  <label for="topicUpdate" className="form-label">
+                  <label htmlFor="topicUpdate" className="form-label">
                     관심 주제
                   </label>
                 </div>

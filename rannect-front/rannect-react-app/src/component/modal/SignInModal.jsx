@@ -27,7 +27,7 @@ function SignInModal({ show, handleHide, handleChange, handleSubmit, errMsg }) {
               )}
               <div className="row mx-3 my-3 rounded text-center py-1 form-item">
                 <div className="col-sm-3 align-self-center">
-                  <label for="signInUserId" className="form-label">
+                  <label htmlFor="signInUserId" className="form-label">
                     <div className="form-label">아이디</div>
                   </label>
                 </div>
@@ -43,7 +43,7 @@ function SignInModal({ show, handleHide, handleChange, handleSubmit, errMsg }) {
               </div>
               <div className="row mx-3 my-3 rounded text-center py-1 form-item">
                 <div className="col-sm-3 align-self-center">
-                  <label for="signInPassword" className="form-label">
+                  <label htmlFor="signInPassword" className="form-label">
                     <div className="form-label">비밀번호</div>
                   </label>
                 </div>

@@ -33,7 +33,7 @@ function SignUpModal({
               )}
               <div className="row mx-3 my-3 rounded text-center py-1 form-item">
                 <div className="col-sm-3 align-self-center">
-                  <label for="signUpUserId" className="form-label">
+                  <label htmlFor="signUpUserId" className="form-label">
                     <div className="form-label">아이디</div>
                   </label>
                 </div>
@@ -49,7 +49,7 @@ function SignUpModal({
               </div>
               <div className="row mx-3 my-3 rounded text-center py-1 form-item">
                 <div className="col-sm-3 align-self-center">
-                  <label for="signUpPassword" className="form-label">
+                  <label htmlFor="signUpPassword" className="form-label">
                     <div className="form-label">비밀번호</div>
                   </label>
                 </div>
@@ -65,7 +65,7 @@ function SignUpModal({
               </div>
               <div className="row mx-3 my-3 rounded text-center py-1 form-item">
                 <div className="col-sm-3 align-self-center">
-                  <label for="signUpNickname" className="form-label">
+                  <label htmlFor="signUpNickname" className="form-label">
                     <div className="form-label">닉네임</div>
                   </label>
                 </div>
@@ -81,7 +81,7 @@ function SignUpModal({
               </div>
               <div className="row mx-3 my-3 rounded text-center py-1 form-item">
                 <div className="col-sm-3 align-self-center">
-                  <label for="signUptopic" className="form-label">
+                  <label htmlFor="signUptopic" className="form-label">
                     <div className="form-label">관심 주제</div>
                   </label>
                 </div>
