@@ -12,7 +12,7 @@ function GroupChatRoomList() {
           <div className="col-sm-6" style={{ marginTop: "0.5rem" }}>
             <div className="card">
               <div className="card-body" style={{ padding: "0.2rem" }}>
-                <div className="col-sm-10" style={{ textAlign: "left" }}>
+                <div className="col-sm-10 mt-1" style={{ textAlign: "left" }}>
                   그룹 채팅방 제목
                 </div>
                 <span
@@ -35,7 +35,7 @@ function GroupChatRoomList() {
           <div className="col-sm-6" style={{ marginTop: "0.5rem" }}>
             <div className="card">
               <div className="card-body" style={{ padding: "0.2rem" }}>
-                <div className="col-sm-10" style={{ textAlign: "left" }}>
+                <div className="col-sm-10 mt-1" style={{ textAlign: "left" }}>
                   그룹 채팅방 제목
                 </div>
                 <span
@@ -60,7 +60,7 @@ function GroupChatRoomList() {
           <div className="col-sm-6" style={{ marginTop: "0.5rem" }}>
             <div className="card">
               <div className="card-body" style={{ padding: "0.2rem" }}>
-                <div className="col-sm-10" style={{ textAlign: "left" }}>
+                <div className="col-sm-10 mt-1" style={{ textAlign: "left" }}>
                   그룹 채팅방 제목
                 </div>
                 <span
@@ -83,7 +83,7 @@ function GroupChatRoomList() {
           <div className="col-sm-6" style={{ marginTop: "0.5rem" }}>
             <div className="card">
               <div className="card-body" style={{ padding: "0.2rem" }}>
-                <div className="col-sm-10" style={{ textAlign: "left" }}>
+                <div className="col-sm-10 mt-1" style={{ textAlign: "left" }}>
                   그룹 채팅방 제목
                 </div>
                 <span
