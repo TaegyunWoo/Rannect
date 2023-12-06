@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import Header from "./module/Header";
+import Main from "./module/Main";
 import callMemberInfoAPI from "./api/member/MemberInfoAPI";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         currentUserInfo={currentUserInfo}
         setCurrentUserInfo={setCurrentUserInfo}
       />
+      <Main />
     </div>
   );
 }

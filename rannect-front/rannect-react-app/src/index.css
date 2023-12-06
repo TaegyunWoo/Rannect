@@ -34,6 +34,10 @@
   font-style: normal;
 }
 
+.App {
+  margin: 0rem 1.5rem;
+}
+
 body {
   background-color: #001f3d;
   /* color: #F8DCBF; */
@@ -74,7 +78,7 @@ h6,
   color: rgb(217, 217, 217);
 }
 
-.overflow-scroll {
+.overflow-auto {
   background-color: white;
 }
 
