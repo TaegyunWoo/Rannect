@@ -1,6 +1,6 @@
 import React from "react";
-import IntroService from "../intro-service/IntroService";
-import MainLogo from "../intro-service/MainLogo";
+import IntroService from "../intro-service/IntroServiceComponent";
+import MainLogo from "../intro-service/MainLogoComponent";
 
 function SecondMainRow() {
   return (

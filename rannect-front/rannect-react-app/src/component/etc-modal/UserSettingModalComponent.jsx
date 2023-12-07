@@ -81,7 +81,7 @@ function UserSettingModal({
               </div>
               <div className="row mx-3 my-3 rounded text-center py-1 form-item">
                 <button
-                  className="btn"
+                  className="btn w-100"
                   style={{ color: "whitesmoke" }}
                   onClick={handleLogout}
                 >
@@ -99,6 +99,7 @@ function UserSettingModal({
                     취소
                   </button>
                 </span>
+                <span className="mx-3 my-3 rounded text-center py-1"></span>
                 <span className="float-end me-5">
                   <button
                     type="submit"

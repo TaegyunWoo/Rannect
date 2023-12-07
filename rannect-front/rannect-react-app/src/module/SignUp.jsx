@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import SignUpModal from "../component/modal/SignUpModal";
+import SignUpModalComponent from "../component/etc-modal/SignUpModalComponent";
 import callSignUpAPI from "../api/member/SignUpAPI";
 import callSignInAPI from "../api/member/SignInAPI";
 
@@ -62,7 +62,7 @@ function SignUp({ show, handleHideBasic, setSignInState }) {
   };
 
   return (
-    <SignUpModal
+    <SignUpModalComponent
       show={show}
       handleHide={handleHideWithClearState}
       handleChange={handleSignUpChange}

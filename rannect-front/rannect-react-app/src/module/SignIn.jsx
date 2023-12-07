@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SignInModal from "../component/modal/SignInModal";
+import SignInModalComponent from "../component/etc-modal/SignInModalComponent";
 import callSignInAPI from "../api/member/SignInAPI";
 
 function SignIn({ show, handleHideBasic, setSignInState, setCurrentUserInfo }) {
@@ -41,7 +41,7 @@ function SignIn({ show, handleHideBasic, setSignInState, setCurrentUserInfo }) {
   };
 
   return (
-    <SignInModal
+    <SignInModalComponent
       show={show}
       handleHide={handleHideWithClearState}
       handleChange={handleSignInChange}

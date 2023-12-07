@@ -1,8 +1,8 @@
 import React from "react";
-import FooterInfo from "../component/footer/FooterInfo";
+import FooterInfoComponent from "../component/footer/FooterInfoComponent";
 
 function Footer() {
-  return <FooterInfo />;
+  return <FooterInfoComponent />;
 }
 
 export default Footer;

@@ -1,6 +1,9 @@
 import React from "react";
 
-function PersonalChatRoomList() {
+function PersonalChatRoomList({
+  handleShowPersonalChatMatchingModal,
+  handleShowPersonalChatRoomModal,
+}) {
   return (
     <div className="col-sm-4 mt-5">
       <h1 style={{ textAlign: "left" }}>1대1 랜덤 채팅</h1>
@@ -22,8 +25,7 @@ function PersonalChatRoomList() {
           {/* List Body */}
           <div
             className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
-            data-bs-toggle="modal"
-            data-bs-target="#personalChatRoomModal"
+            onClick={handleShowPersonalChatRoomModal}
           >
             <span className="col-sm-4 text-truncate">
               유저 닉네임 123456789
@@ -37,8 +39,7 @@ function PersonalChatRoomList() {
           </div>
           <div
             className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
-            data-bs-toggle="modal"
-            data-bs-target="#personalChatRoomModal"
+            onClick={handleShowPersonalChatRoomModal}
           >
             <span className="col-sm-4 text-truncate">
               유저 닉네임 123456789
@@ -52,8 +53,7 @@ function PersonalChatRoomList() {
           </div>
           <div
             className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
-            data-bs-toggle="modal"
-            data-bs-target="#personalChatRoomModal"
+            onClick={handleShowPersonalChatRoomModal}
           >
             <span className="col-sm-4 text-truncate">
               유저 닉네임 123456789
@@ -67,8 +67,7 @@ function PersonalChatRoomList() {
           </div>
           <div
             className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
-            data-bs-toggle="modal"
-            data-bs-target="#personalChatRoomModal"
+            onClick={handleShowPersonalChatRoomModal}
           >
             <span className="col-sm-4 text-truncate">
               유저 닉네임 123456789
@@ -82,8 +81,7 @@ function PersonalChatRoomList() {
           </div>
           <div
             className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
-            data-bs-toggle="modal"
-            data-bs-target="#personalChatRoomModal"
+            onClick={handleShowPersonalChatRoomModal}
           >
             <span className="col-sm-4 text-truncate">
               유저 닉네임 123456789
@@ -97,8 +95,7 @@ function PersonalChatRoomList() {
           </div>
           <div
             className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
-            data-bs-toggle="modal"
-            data-bs-target="#personalChatRoomModal"
+            onClick={handleShowPersonalChatRoomModal}
           >
             <span className="col-sm-4 text-truncate">
               유저 닉네임 123456789
@@ -112,8 +109,7 @@ function PersonalChatRoomList() {
           </div>
           <div
             className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
-            data-bs-toggle="modal"
-            data-bs-target="#personalChatRoomModal"
+            onClick={handleShowPersonalChatRoomModal}
           >
             <span className="col-sm-4 text-truncate">
               유저 닉네임 123456789
@@ -127,8 +123,7 @@ function PersonalChatRoomList() {
           </div>
           <div
             className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
-            data-bs-toggle="modal"
-            data-bs-target="#personalChatRoomModal"
+            onClick={handleShowPersonalChatRoomModal}
           >
             <span className="col-sm-4 text-truncate">
               유저 닉네임 123456789
@@ -142,8 +137,7 @@ function PersonalChatRoomList() {
           </div>
           <div
             className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
-            data-bs-toggle="modal"
-            data-bs-target="#personalChatRoomModal"
+            onClick={handleShowPersonalChatRoomModal}
           >
             <span className="col-sm-4 text-truncate">
               유저 닉네임 123456789
@@ -157,8 +151,7 @@ function PersonalChatRoomList() {
           </div>
           <div
             className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
-            data-bs-toggle="modal"
-            data-bs-target="#personalChatRoomModal"
+            onClick={handleShowPersonalChatRoomModal}
           >
             <span className="col-sm-4 text-truncate">
               유저 닉네임 123456789
@@ -181,8 +174,7 @@ function PersonalChatRoomList() {
         <button
           type="button"
           className="btn chat-start-btn w-100 mx-auto"
-          data-bs-toggle="modal"
-          data-bs-target="#personalChatMatchingModal"
+          onClick={handleShowPersonalChatMatchingModal}
         >
           1대1 랜덤채팅 시작
         </button>

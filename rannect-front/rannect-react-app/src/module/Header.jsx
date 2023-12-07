@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import MainHeader from "../component/header/MainHeader";
-import LoginedBtns from "../component/header/LoginedBtns";
-import NotLoginedBtns from "../component/header/NotLoginedBtns";
+import MainHeaderComponent from "../component/header/MainHeaderComponent";
+import LoginedBtnsComponent from "../component/header/LoginedBtnsComponent";
+import NotLoginedBtnsComponent from "../component/header/NotLoginedBtnsComponent";
 import UserSetting from "./UserSetting";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
@@ -38,9 +38,9 @@ function Header({
   if (signInState) {
     return (
       <>
-        <MainHeader
+        <MainHeaderComponent
           btns={
-            <LoginedBtns
+            <LoginedBtnsComponent
               handleClick={handleUserSettingModal}
               nickname={currentUserInfo.nickname}
             />
@@ -57,9 +57,9 @@ function Header({
   } else {
     return (
       <>
-        <MainHeader
+        <MainHeaderComponent
           btns={
-            <NotLoginedBtns
+            <NotLoginedBtnsComponent
               handleSignUpClick={handleShowSignUpModal}
               handleSignInClick={handleSignInModal}
             />

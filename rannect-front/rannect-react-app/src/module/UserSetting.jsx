@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import UserSettingModal from "../component/modal/UserSettingModal";
+import UserSettingModalComponent from "../component/etc-modal/UserSettingModalComponent";
 import callSignOutAPI from "../api/member/SignOutApi";
 import callMemberInfoAPI from "../api/member/MemberInfoAPI";
 import callUpdateMyMemberInfoAPI from "../api/member/UpdateMyMemberInfoAPI";
@@ -76,7 +76,7 @@ function UserSetting({
   }, [show]);
 
   return (
-    <UserSettingModal
+    <UserSettingModalComponent
       show={show}
       handleHide={handleHideWithClearState}
       handleChange={handleChange}
