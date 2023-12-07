@@ -11,157 +11,190 @@ function PersonalChatRoomList({
         현재 접속자 : <span className="badge ">10명</span>
       </div>
       <div
-        className="mt-4 rounded overflow-auto border shadow"
-        style={{ height: "265px" }}
+        className="mt-4 rounded border shadow"
+        style={{ backgroundColor: "white" }}
       >
         <div className="mt-1 mb-1 ms-1 me-1">
           {/* List Header */}
           <div className="row mx-auto mb-2 list-header text-center">
             <span className="col-sm-4 text-truncate">유저 닉네임</span>
-            <span className="col-sm-6 text-truncate">관심주제</span>
-            <span className="col-sm-2 text-truncate">채팅</span>
+            <span className="col-sm-5 text-truncate">관심주제</span>
+            <span className="col-sm-3 text-truncate">채팅</span>
           </div>
           {/* List Header (End) */}
+
           {/* List Body */}
-          <div
-            className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
-            onClick={handleShowPersonalChatRoomModal}
-          >
-            <span className="col-sm-4 text-truncate">
-              유저 닉네임 123456789
-            </span>
-            <span className="col-sm-6 text-truncate">
-              관심주제 123456789ABCDEFG
-            </span>
-            <span className="col-sm-2 text-truncate">
-              <img src="/icon/chat-dots-fill.svg" className="mx-auto d-block" />
-            </span>
-          </div>
-          <div
-            className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
-            onClick={handleShowPersonalChatRoomModal}
-          >
-            <span className="col-sm-4 text-truncate">
-              유저 닉네임 123456789
-            </span>
-            <span className="col-sm-6 text-truncate">
-              관심주제 123456789ABCDEFG
-            </span>
-            <span className="col-sm-2 text-truncate">
-              <img src="/icon/chat-dots-fill.svg" className="mx-auto d-block" />
-            </span>
-          </div>
-          <div
-            className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
-            onClick={handleShowPersonalChatRoomModal}
-          >
-            <span className="col-sm-4 text-truncate">
-              유저 닉네임 123456789
-            </span>
-            <span className="col-sm-6 text-truncate">
-              관심주제 123456789ABCDEFG
-            </span>
-            <span className="col-sm-2 text-truncate">
-              <img src="/icon/chat-dots-fill.svg" className="mx-auto d-block" />
-            </span>
-          </div>
-          <div
-            className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
-            onClick={handleShowPersonalChatRoomModal}
-          >
-            <span className="col-sm-4 text-truncate">
-              유저 닉네임 123456789
-            </span>
-            <span className="col-sm-6 text-truncate">
-              관심주제 123456789ABCDEFG
-            </span>
-            <span className="col-sm-2 text-truncate">
-              <img src="/icon/chat-dots-fill.svg" className="mx-auto d-block" />
-            </span>
-          </div>
-          <div
-            className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
-            onClick={handleShowPersonalChatRoomModal}
-          >
-            <span className="col-sm-4 text-truncate">
-              유저 닉네임 123456789
-            </span>
-            <span className="col-sm-6 text-truncate">
-              관심주제 123456789ABCDEFG
-            </span>
-            <span className="col-sm-2 text-truncate">
-              <img src="/icon/chat-dots-fill.svg" className="mx-auto d-block" />
-            </span>
-          </div>
-          <div
-            className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
-            onClick={handleShowPersonalChatRoomModal}
-          >
-            <span className="col-sm-4 text-truncate">
-              유저 닉네임 123456789
-            </span>
-            <span className="col-sm-6 text-truncate">
-              관심주제 123456789ABCDEFG
-            </span>
-            <span className="col-sm-2 text-truncate">
-              <img src="/icon/chat-dots-fill.svg" className="mx-auto d-block" />
-            </span>
-          </div>
-          <div
-            className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
-            onClick={handleShowPersonalChatRoomModal}
-          >
-            <span className="col-sm-4 text-truncate">
-              유저 닉네임 123456789
-            </span>
-            <span className="col-sm-6 text-truncate">
-              관심주제 123456789ABCDEFG
-            </span>
-            <span className="col-sm-2 text-truncate">
-              <img src="/icon/chat-dots-fill.svg" className="mx-auto d-block" />
-            </span>
-          </div>
-          <div
-            className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
-            onClick={handleShowPersonalChatRoomModal}
-          >
-            <span className="col-sm-4 text-truncate">
-              유저 닉네임 123456789
-            </span>
-            <span className="col-sm-6 text-truncate">
-              관심주제 123456789ABCDEFG
-            </span>
-            <span className="col-sm-2 text-truncate">
-              <img src="/icon/chat-dots-fill.svg" className="mx-auto d-block" />
-            </span>
-          </div>
-          <div
-            className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
-            onClick={handleShowPersonalChatRoomModal}
-          >
-            <span className="col-sm-4 text-truncate">
-              유저 닉네임 123456789
-            </span>
-            <span className="col-sm-6 text-truncate">
-              관심주제 123456789ABCDEFG
-            </span>
-            <span className="col-sm-2 text-truncate">
-              <img src="/icon/chat-dots-fill.svg" className="mx-auto d-block" />
-            </span>
-          </div>
-          <div
-            className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
-            onClick={handleShowPersonalChatRoomModal}
-          >
-            <span className="col-sm-4 text-truncate">
-              유저 닉네임 123456789
-            </span>
-            <span className="col-sm-6 text-truncate">
-              관심주제 123456789ABCDEFG
-            </span>
-            <span className="col-sm-2 text-truncate">
-              <img src="/icon/chat-dots-fill.svg" className="mx-auto d-block" />
-            </span>
+          <div className="overflow-auto" style={{ height: "14rem" }}>
+            <div
+              className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
+              onClick={handleShowPersonalChatRoomModal}
+            >
+              <span className="col-sm-4 text-truncate">
+                유저 닉네임 123456789
+              </span>
+              <span className="col-sm-6 text-truncate">
+                관심주제 123456789ABCDEFG
+              </span>
+              <span className="col-sm-2 text-truncate">
+                <img
+                  src="/icon/chat-dots-fill.svg"
+                  className="mx-auto d-block"
+                />
+              </span>
+            </div>
+            <div
+              className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
+              onClick={handleShowPersonalChatRoomModal}
+            >
+              <span className="col-sm-4 text-truncate">
+                유저 닉네임 123456789
+              </span>
+              <span className="col-sm-6 text-truncate">
+                관심주제 123456789ABCDEFG
+              </span>
+              <span className="col-sm-2 text-truncate">
+                <img
+                  src="/icon/chat-dots-fill.svg"
+                  className="mx-auto d-block"
+                />
+              </span>
+            </div>
+            <div
+              className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
+              onClick={handleShowPersonalChatRoomModal}
+            >
+              <span className="col-sm-4 text-truncate">
+                유저 닉네임 123456789
+              </span>
+              <span className="col-sm-6 text-truncate">
+                관심주제 123456789ABCDEFG
+              </span>
+              <span className="col-sm-2 text-truncate">
+                <img
+                  src="/icon/chat-dots-fill.svg"
+                  className="mx-auto d-block"
+                />
+              </span>
+            </div>
+            <div
+              className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
+              onClick={handleShowPersonalChatRoomModal}
+            >
+              <span className="col-sm-4 text-truncate">
+                유저 닉네임 123456789
+              </span>
+              <span className="col-sm-6 text-truncate">
+                관심주제 123456789ABCDEFG
+              </span>
+              <span className="col-sm-2 text-truncate">
+                <img
+                  src="/icon/chat-dots-fill.svg"
+                  className="mx-auto d-block"
+                />
+              </span>
+            </div>
+            <div
+              className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
+              onClick={handleShowPersonalChatRoomModal}
+            >
+              <span className="col-sm-4 text-truncate">
+                유저 닉네임 123456789
+              </span>
+              <span className="col-sm-6 text-truncate">
+                관심주제 123456789ABCDEFG
+              </span>
+              <span className="col-sm-2 text-truncate">
+                <img
+                  src="/icon/chat-dots-fill.svg"
+                  className="mx-auto d-block"
+                />
+              </span>
+            </div>
+            <div
+              className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
+              onClick={handleShowPersonalChatRoomModal}
+            >
+              <span className="col-sm-4 text-truncate">
+                유저 닉네임 123456789
+              </span>
+              <span className="col-sm-6 text-truncate">
+                관심주제 123456789ABCDEFG
+              </span>
+              <span className="col-sm-2 text-truncate">
+                <img
+                  src="/icon/chat-dots-fill.svg"
+                  className="mx-auto d-block"
+                />
+              </span>
+            </div>
+            <div
+              className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
+              onClick={handleShowPersonalChatRoomModal}
+            >
+              <span className="col-sm-4 text-truncate">
+                유저 닉네임 123456789
+              </span>
+              <span className="col-sm-6 text-truncate">
+                관심주제 123456789ABCDEFG
+              </span>
+              <span className="col-sm-2 text-truncate">
+                <img
+                  src="/icon/chat-dots-fill.svg"
+                  className="mx-auto d-block"
+                />
+              </span>
+            </div>
+            <div
+              className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
+              onClick={handleShowPersonalChatRoomModal}
+            >
+              <span className="col-sm-4 text-truncate">
+                유저 닉네임 123456789
+              </span>
+              <span className="col-sm-6 text-truncate">
+                관심주제 123456789ABCDEFG
+              </span>
+              <span className="col-sm-2 text-truncate">
+                <img
+                  src="/icon/chat-dots-fill.svg"
+                  className="mx-auto d-block"
+                />
+              </span>
+            </div>
+            <div
+              className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
+              onClick={handleShowPersonalChatRoomModal}
+            >
+              <span className="col-sm-4 text-truncate">
+                유저 닉네임 123456789
+              </span>
+              <span className="col-sm-6 text-truncate">
+                관심주제 123456789ABCDEFG
+              </span>
+              <span className="col-sm-2 text-truncate">
+                <img
+                  src="/icon/chat-dots-fill.svg"
+                  className="mx-auto d-block"
+                />
+              </span>
+            </div>
+            <div
+              className="row mx-auto my-1 list-body list-item d-flex flex-wrap align-items-center rounded"
+              onClick={handleShowPersonalChatRoomModal}
+            >
+              <span className="col-sm-4 text-truncate">
+                유저 닉네임 123456789
+              </span>
+              <span className="col-sm-6 text-truncate">
+                관심주제 123456789ABCDEFG
+              </span>
+              <span className="col-sm-2 text-truncate">
+                <img
+                  src="/icon/chat-dots-fill.svg"
+                  className="mx-auto d-block"
+                />
+              </span>
+            </div>
           </div>
           {/* List Body (End) */}
         </div>
