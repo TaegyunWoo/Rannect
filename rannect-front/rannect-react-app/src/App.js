@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import Header from "./module/Header";
 import Main from "./module/Main";
+import Footer from "./module/Footer";
 import callMemberInfoAPI from "./api/member/MemberInfoAPI";
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         setCurrentUserInfo={setCurrentUserInfo}
       />
       <Main />
+      <Footer />
     </div>
   );
 }
