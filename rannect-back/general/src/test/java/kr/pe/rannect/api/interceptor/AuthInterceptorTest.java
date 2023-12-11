@@ -57,7 +57,7 @@ class AuthInterceptorTest {
     given(request.getRemoteAddr()).willReturn("request remote address");
     given(request.getCookies()).willReturn(cookies);
     given(jwtTokenParser.parseJwtToken(eq(validAccessToken))).willReturn(Optional.of(claims));
-    given(authTokenPairRepository.findById(memberPk)).willReturn(Optional.of(new AuthTokenPair(memberPk, validAccessToken, "my refresh token")));
+    given(authTokenPairRepository.findById(memberPk)).willReturn(Optional.of(new AuthTokenPair(memberPk, validAccessToken, "my refresh token", "")));
 
     //WHEN
     boolean result = false;

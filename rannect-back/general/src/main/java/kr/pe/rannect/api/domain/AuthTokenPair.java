@@ -5,6 +5,7 @@
 package kr.pe.rannect.api.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
@@ -19,4 +20,6 @@ public class AuthTokenPair {
   private Long memberPk;
   private String accessToken;
   private String refreshToken;
+  @Builder.Default
+  private String wsToken = "";
 }

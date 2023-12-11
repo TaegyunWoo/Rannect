@@ -18,6 +18,7 @@ public interface AuthTokenPairMapper {
   @Mapping(source = "memberPk", target = "memberPk")
   @Mapping(source = "accessToken", target = "accessToken")
   @Mapping(source = "refreshToken", target = "refreshToken")
+  @Mapping(constant = "", target = "wsToken")
   AuthTokenPair toEntity(long memberPk, String accessToken, String refreshToken);
 
   @Mapping(source = "accessToken", target = "accessToken")

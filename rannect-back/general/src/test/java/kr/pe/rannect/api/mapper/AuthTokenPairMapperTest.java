@@ -29,7 +29,7 @@ class AuthTokenPairMapperTest {
     long memberPk = 1l;
     String accessTokenVal = "this is my access token";
     String refreshTokenVal = "this is my refresh token";
-    AuthTokenPair entity = new AuthTokenPair(memberPk, accessTokenVal, refreshTokenVal);
+    AuthTokenPair entity = new AuthTokenPair(memberPk, accessTokenVal, refreshTokenVal, "");
 
     //WHEN
     AuthTokenPairResponse result = AuthTokenPairMapper.INSTANCE.toResponseDto(entity);

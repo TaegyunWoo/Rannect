@@ -38,4 +38,14 @@ public class AuthTokenDto {
     @Schema(description = "Refresh Token Value")
     private String refreshToken;
   }
+
+  @Getter
+  @Setter
+  @NoArgsConstructor
+  @AllArgsConstructor
+  @Builder
+  public static class WsTokenResponse {
+    @Schema(description = "WebSocket Token Value")
+    private String wsToken;
+  }
 }
