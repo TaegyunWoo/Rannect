@@ -97,5 +97,6 @@ public class TokenService {
   @Transactional
   public void deleteTokenPair(long memberPk) {
     authTokenPairRepository.deleteById(memberPk);
+    log.info("[Service] User(memberPk: {})'s tokens are removed at db.", memberPk);
   }
 }
